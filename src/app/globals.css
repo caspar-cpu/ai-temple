@@ -1,20 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: 38 30% 95%;
+  /* Off-white pearl base for the core content area (was sandy 38 30% 95%) */
+  --background: 40 22% 94%;
   --foreground: 0 0% 10%;
-  --card: 38 25% 97%;
+  /* Cards sit just slightly above the background, near-white */
+  --card: 0 0% 99%;
   --card-foreground: 0 0% 10%;
-  --primary: 38 55% 48%;
-  --primary-foreground: 38 30% 97%;
-  --muted: 38 20% 90%;
+  --primary: 38 55% 48%;             /* vermeil gold */
+  --primary-foreground: 40 22% 96%;
+  /* Sandy/linen — used for nav header, sidebar, chips so they stay warm */
+  --muted: 38 30% 88%;
   --muted-foreground: 0 0% 38%;
-  --destructive: 8 70% 48%;
-  --destructive-foreground: 38 30% 97%;
+  --destructive: 6 60% 44%;          /* bead-red #B33A2E */
+  --destructive-foreground: 40 22% 96%;
   --positive: 38 55% 48%;
-  --accent: 270 60% 78%;
-  --accent-foreground: 0 0% 10%;
-  --border: 38 15% 85%;
+  --accent: 209 17% 35%;             /* peacock-blue #4A5B6A */
+  --accent-foreground: 40 22% 96%;
+  /* Brand bead palette — exposed for direct use across the app */
+  --bead-red: 6 60% 44%;             /* #B33A2E */
+  --bead-blue: 209 17% 35%;          /* #4A5B6A */
+  --pearl: 40 22% 94%;               /* #F2F0EB */
+  --border: 38 18% 84%;
   --ring: 38 55% 48%;
   --radius: 0.5rem;
 }
@@ -33,6 +40,9 @@
   --color-positive: hsl(var(--positive));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-bead-red: hsl(var(--bead-red));
+  --color-bead-blue: hsl(var(--bead-blue));
+  --color-pearl: hsl(var(--pearl));
   --color-border: hsl(var(--border));
   --color-ring: hsl(var(--ring));
   --font-sans: var(--font-inter);

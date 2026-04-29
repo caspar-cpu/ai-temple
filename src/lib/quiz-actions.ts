@@ -145,22 +145,27 @@ export async function loadQuestion(
   } = await supabase.auth.getUser();
   if (!user) return { status: "no_question" };
 
-  if (await isAlreadyDone(supabase, user.id, contentType, contentKey)) {
-    return { status: "already_done" };
-  }
+  // Run the three independent reads in parallel — cuts ~3 round-trips down
+  // to one-trip wall-time, which is the dominant cost on the modal open.
+  const [alreadyDone, qRes, locked] = await Promise.all([
+    isAlreadyDone(supabase, user.id, contentType, contentKey),
+    supabase
+      .from("content_questions")
+      .select("question, options")
+      .eq("content_type", contentType)
+      .eq("content_key", contentKey)
+      .maybeSingle(),
+    lockedMinutes(supabase, user.id, contentType, contentKey),
+  ]);
 
-  const { data: q } = await supabase
-    .from("content_questions")
-    .select("question, options")
-    .eq("content_type", contentType)
-    .eq("content_key", contentKey)
-    .maybeSingle();
-  if (!q) return { status: "no_question" };
-
-  const locked = await lockedMinutes(supabase, user.id, contentType, contentKey);
+  if (alreadyDone) return { status: "already_done" };
+  if (!qRes.data) return { status: "no_question" };
   if (locked !== null) return { status: "locked", minutesUntil: locked };
-
-  return { status: "ready", question: q.question, options: q.options };
+  return {
+    status: "ready",
+    question: qRes.data.question,
+    options: qRes.data.options,
+  };
 }
 
 export async function submitQuiz(
@@ -174,39 +179,53 @@ export async function submitQuiz(
   } = await supabase.auth.getUser();
   if (!user) return { status: "no_question" };
 
-  if (await isAlreadyDone(supabase, user.id, contentType, contentKey)) {
-    return { status: "already_done" };
-  }
+  // Parallelize the three precondition reads (same optimization as loadQuestion).
+  const [alreadyDone, qRes, locked] = await Promise.all([
+    isAlreadyDone(supabase, user.id, contentType, contentKey),
+    supabase
+      .from("content_questions")
+      .select("correct_index")
+      .eq("content_type", contentType)
+      .eq("content_key", contentKey)
+      .maybeSingle(),
+    lockedMinutes(supabase, user.id, contentType, contentKey),
+  ]);
 
-  const { data: q } = await supabase
-    .from("content_questions")
-    .select("correct_index")
-    .eq("content_type", contentType)
-    .eq("content_key", contentKey)
-    .maybeSingle();
+  if (alreadyDone) return { status: "already_done" };
 
-  if (!q) {
+  if (!qRes.data) {
     const r = await performMark(supabase, user.id, contentType, contentKey);
     if (!r.ok) return { status: "error", message: r.error ?? "Unknown error" };
     return { status: "no_question" };
   }
 
-  const locked = await lockedMinutes(supabase, user.id, contentType, contentKey);
   if (locked !== null) return { status: "locked", minutesUntil: locked };
 
-  const correct = answerIndex === q.correct_index;
+  const correct = answerIndex === qRes.data.correct_index;
+
+  if (correct) {
+    // Run the attempt-log + the actual mark in parallel — both are writes
+    // and don't depend on each other. Halves the wall time of the success path.
+    const [, mark] = await Promise.all([
+      supabase.from("quiz_attempts").insert({
+        user_id: user.id,
+        content_type: contentType,
+        content_key: contentKey,
+        correct: true,
+      }),
+      performMark(supabase, user.id, contentType, contentKey),
+    ]);
+    if (!mark.ok)
+      return { status: "error", message: mark.error ?? "Unknown error" };
+    return { status: "correct" };
+  }
+
   await supabase.from("quiz_attempts").insert({
     user_id: user.id,
     content_type: contentType,
     content_key: contentKey,
-    correct,
+    correct: false,
   });
-
-  if (correct) {
-    const r = await performMark(supabase, user.id, contentType, contentKey);
-    if (!r.ok) return { status: "error", message: r.error ?? "Unknown error" };
-    return { status: "correct" };
-  }
   return { status: "wrong", minutesUntil: 24 * 60 };
 }
 

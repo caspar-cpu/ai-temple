@@ -1,41 +1,31 @@
-import {
-  Award,
-  BookOpen,
-  Check,
-  FilePlus,
-  GraduationCap,
-  Rocket,
-  Sparkles,
-  Star,
-  Target,
-  Wrench,
-  Zap,
-  type LucideIcon,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
-import { UncutGem } from "@/components/uncut-gem";
+import { Gemstone } from "@/components/gemstone";
+import { Nugget } from "@/components/nugget";
 
-const ICONS: Record<string, LucideIcon> = {
-  Award,
-  BookOpen,
-  Check,
-  FilePlus,
-  GraduationCap,
-  Rocket,
-  Sparkles,
-  Star,
-  Target,
-  Wrench,
-  Zap,
+type GemKind =
+  | "ruby"
+  | "sapphire"
+  | "emerald"
+  | "citrine"
+  | "garnet"
+  | "diamond";
+
+const GEM_KINDS: Record<string, GemKind> = {
+  Ruby: "ruby",
+  Sapphire: "sapphire",
+  Emerald: "emerald",
+  Citrine: "citrine",
+  Garnet: "garnet",
+  Diamond: "diamond",
 };
 
-const TIER_STYLES = {
-  bronze:
-    "rounded-full bg-gradient-to-br from-amber-200 to-amber-700/80 text-amber-900 ring-1 ring-amber-800/30 shadow-sm",
-  silver:
-    "rounded-full bg-gradient-to-br from-zinc-100 to-zinc-400/80 text-zinc-700 ring-1 ring-zinc-500/30 shadow-sm",
-  gold: "rounded-full bg-gradient-to-br from-yellow-200 to-yellow-600/80 text-yellow-900 ring-1 ring-yellow-700/30 shadow-sm",
-} as const;
+function variantFromString(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = (h * 31 + s.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
 
 export function TrophyIcon({
   name,
@@ -49,36 +39,31 @@ export function TrophyIcon({
   animate?: boolean;
 }) {
   const box =
-    size === "lg" ? "size-10" : size === "sm" ? "size-6" : "size-8";
-  const icon = size === "lg" ? "size-5" : size === "sm" ? "size-3" : "size-4";
+    size === "lg" ? "size-12" : size === "sm" ? "size-7" : "size-9";
+
+  const wrapperClasses = cn(
+    "inline-flex items-center justify-center drop-shadow-sm",
+    box,
+    animate && "animate-gem-shimmer",
+  );
+  const wrapperStyle = animate ? { transformStyle: "preserve-3d" as const } : undefined;
 
   if (tier === "special") {
+    const kind = GEM_KINDS[name] ?? "diamond";
     return (
-      <span
-        className={cn(
-          "inline-flex items-center justify-center",
-          box,
-          animate && "animate-gem-shimmer",
-        )}
-        style={animate ? { transformStyle: "preserve-3d" } : undefined}
-      >
-        <UncutGem name={name} className="size-full" />
+      <span className={wrapperClasses} style={wrapperStyle}>
+        <Gemstone kind={kind} className="size-full" />
       </span>
     );
   }
 
-  const Icon = ICONS[name] ?? Award;
   return (
-    <span
-      className={cn(
-        "inline-flex items-center justify-center",
-        TIER_STYLES[tier],
-        box,
-        animate && "animate-gem-shimmer",
-      )}
-      style={animate ? { transformStyle: "preserve-3d" } : undefined}
-    >
-      <Icon className={icon} />
+    <span className={wrapperClasses} style={wrapperStyle}>
+      <Nugget
+        tone={tier}
+        variant={variantFromString(name)}
+        className="size-full"
+      />
     </span>
   );
 }
