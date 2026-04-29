@@ -148,6 +148,12 @@ export const TEAMS: Team[] = [
   },
 ];
 
+/**
+ * Look up a team by slug. Returns null when the slug isn't in the
+ * static `TEAMS` list — callers should `notFound()` or render a
+ * fallback. Source-of-truth lives in this file (no DB table); add
+ * teams here, no migration needed.
+ */
 export function getTeam(slug: string): Team | null {
   return TEAMS.find((t) => t.slug === slug) ?? null;
 }
