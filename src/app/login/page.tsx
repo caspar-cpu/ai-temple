@@ -1,12 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthShell } from "@/components/auth-shell";
 import { SunMark } from "@/components/sun-mark";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { inputClass } from "@/components/ui/field";
 import { createClient } from "@/lib/supabase/client";
+
+const EMAIL_KEY = "ai-temple-email";
+const USERNAME_KEY = "ai-temple-username";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -15,6 +18,13 @@ export default function LoginPage() {
     "idle",
   );
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem(EMAIL_KEY);
+    const savedUsername = localStorage.getItem(USERNAME_KEY);
+    if (savedEmail) setEmail(savedEmail);
+    if (savedUsername) setUsername(savedUsername);
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -45,6 +55,8 @@ export default function LoginPage() {
       setStatus("error");
       setError(err.message);
     } else {
+      localStorage.setItem(EMAIL_KEY, cleanEmail);
+      localStorage.setItem(USERNAME_KEY, cleanUsername);
       setStatus("sent");
     }
   }
