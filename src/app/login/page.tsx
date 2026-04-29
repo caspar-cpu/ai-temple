@@ -77,6 +77,16 @@ export default function LoginPage() {
             <p className="mt-3 text-xs text-muted-foreground">
               Not there in a minute? Check your spam folder.
             </p>
+            <button
+              type="button"
+              onClick={() => {
+                setStatus("idle");
+                setError("");
+              }}
+              className="mt-5 text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              Use a different email
+            </button>
           </div>
         ) : (
           <form onSubmit={onSubmit}>
