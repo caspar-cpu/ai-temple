@@ -1,3 +1,8 @@
+/**
+ * The Temple sun glyph: filled disc + 8 cardinal/ordinal rays. Inherits
+ * its color from `currentColor` so size + color are controlled via
+ * Tailwind utilities (e.g. `size-8 text-primary`). The brand mark.
+ */
 export function SunMark({ className }: { className?: string }) {
   return (
     <svg

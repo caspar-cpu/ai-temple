@@ -4,6 +4,12 @@ type Props = {
   size?: number;
 };
 
+/**
+ * A radial sun-disc progress halo: outer ring tracks exact percentage
+ * via stroke-dashoffset, 8 rays light up at 12.5% increments, central
+ * disc gets a sun-shine pulse when `done >= total`. Used on /start-here
+ * (journey progress) and /u/[username] (mastery progress).
+ */
 export function SunProgress({ done, total, size = 128 }: Props) {
   const pct = total > 0 ? done / total : 0;
   const radius = 52;

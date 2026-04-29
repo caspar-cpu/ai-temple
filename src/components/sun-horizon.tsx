@@ -1,3 +1,9 @@
+/**
+ * Hero illustration: a half-disc sun rising over a thin horizon line,
+ * with a soft radial haze and 9 radiating rays. Uses theme tokens
+ * `--primary` and `--foreground` so it re-skins with the palette. Used
+ * on every public surface (home, /about, /login, /auth/error, /not-found).
+ */
 export function SunHorizon({ className }: { className?: string }) {
   return (
     <svg
