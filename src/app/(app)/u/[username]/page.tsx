@@ -95,7 +95,7 @@ export default async function UserProfilePage({
             className="gem-hex size-16 object-cover"
           />
         ) : (
-          <div className="gem-hex flex size-16 items-center justify-center bg-gradient-to-br from-amber-100 to-primary/30 font-display text-2xl font-semibold text-foreground/80">
+          <div className="gem-hex flex size-16 items-center justify-center bg-gradient-to-br from-primary/10 to-primary/30 font-display text-2xl font-semibold text-foreground/80">
             {profile.full_name.charAt(0)}
           </div>
         )}
