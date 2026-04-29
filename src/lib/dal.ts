@@ -7,6 +7,12 @@ import type { Database } from "@/types/db";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 
+/**
+ * Authenticated profile getter for protected routes. Redirects to /login
+ * if there's no session or the profile row is missing. `cache` dedupes
+ * across server components so multiple callers in one request share one
+ * round-trip.
+ */
 export const getCurrentUser = cache(async (): Promise<Profile> => {
   const supabase = await createClient();
   const {
@@ -25,6 +31,11 @@ export const getCurrentUser = cache(async (): Promise<Profile> => {
   return profile;
 });
 
+/**
+ * Like `getCurrentUser` but returns null instead of redirecting when
+ * there's no session. Use on pages that render for both signed-in and
+ * signed-out visitors (e.g. the public landing).
+ */
 export const getOptionalUser = cache(async (): Promise<Profile | null> => {
   const supabase = await createClient();
   const {
@@ -42,6 +53,10 @@ export const getOptionalUser = cache(async (): Promise<Profile | null> => {
   return profile ?? null;
 });
 
+/**
+ * Top-N rows from the `leaderboard` view, points-desc. Returns [] on
+ * error so callers can render a graceful empty state. Cached per request.
+ */
 export const getLeaderboard = cache(async (limit = 10) => {
   const supabase = await createClient();
   const { data, error } = await supabase
