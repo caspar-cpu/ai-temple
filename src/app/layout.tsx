@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The AI Temple",
     description:
-      "AI plugins, skills, courses, and articles for Temple of the Sun.",
+      "AI plugins, skills, courses, and articles for Temple of the Sun. Apply, learn, mine.",
   },
 };
 
