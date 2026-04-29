@@ -81,6 +81,7 @@ export function MarkDoneButton({
   const isDone = alreadyDone || justDone;
 
   if (isDone) {
+    const tier = meta.tier === "special" ? "gold" : meta.tier;
     return (
       <span
         className={cn(
@@ -92,7 +93,7 @@ export function MarkDoneButton({
         )}
       >
         <Nugget
-          tone="gold"
+          tone={tier}
           variant={contentKey.length}
           className={btnSize === "md" ? "size-5" : "size-4"}
         />
