@@ -21,7 +21,7 @@ export default async function SettingsPage({
       <header>
         <Link
           href={`/u/${user.username}`}
-          className="text-sm text-muted-foreground hover:text-foreground"
+          className="text-sm text-muted-foreground hover:text-bead-blue"
         >
           ← Your profile
         </Link>

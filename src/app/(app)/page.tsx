@@ -119,7 +119,7 @@ export default async function HomePage() {
           {trophies.length > 5 && (
             <Link
               href={`/u/${user.username}`}
-              className="text-xs text-muted-foreground hover:text-foreground"
+              className="text-xs text-muted-foreground hover:text-bead-blue"
             >
               See all {trophies.length} →
             </Link>

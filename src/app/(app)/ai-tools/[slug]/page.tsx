@@ -69,7 +69,7 @@ export default async function AiToolDetailPage({
         <div className="flex flex-wrap items-center gap-2">
           <Link
             href="/ai-tools"
-            className="text-sm text-muted-foreground hover:text-foreground"
+            className="text-sm text-muted-foreground hover:text-bead-blue"
           >
             ← All AI tools
           </Link>

@@ -18,7 +18,7 @@ export default async function SubmitArticlePage({
       <header>
         <Link
           href="/articles"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          className="text-sm text-muted-foreground hover:text-bead-blue"
         >
           ← All articles
         </Link>

@@ -18,7 +18,7 @@ export default async function SubmitPluginPage({
       <header>
         <Link
           href="/plugins"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          className="text-sm text-muted-foreground hover:text-bead-blue"
         >
           ← All plugins
         </Link>

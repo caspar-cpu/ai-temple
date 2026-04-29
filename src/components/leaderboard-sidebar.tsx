@@ -37,7 +37,7 @@ export function LeaderboardSidebar({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex h-10 w-full items-center justify-center border-b border-border text-muted-foreground hover:text-foreground"
+        className="flex h-10 w-full items-center justify-center border-b border-border text-muted-foreground hover:text-bead-blue"
         aria-label={open ? "Collapse leaderboard" : "Expand leaderboard"}
       >
         <ChevronRight
@@ -91,7 +91,7 @@ export function LeaderboardSidebar({
 
           <Link
             href="/leaderboard"
-            className="mt-3 block text-xs text-muted-foreground hover:text-foreground"
+            className="mt-3 block text-xs text-muted-foreground hover:text-bead-blue"
           >
             View full leaderboard →
           </Link>

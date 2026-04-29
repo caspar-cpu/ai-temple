@@ -18,7 +18,7 @@ export default async function SubmitSkillPage({
       <header>
         <Link
           href="/skills"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          className="text-sm text-muted-foreground hover:text-bead-blue"
         >
           ← All skills
         </Link>

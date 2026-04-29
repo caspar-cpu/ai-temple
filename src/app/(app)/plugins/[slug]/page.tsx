@@ -54,7 +54,7 @@ export default async function PluginDetailPage({
         <div className="flex items-center gap-2">
           <Link
             href="/plugins"
-            className="text-sm text-muted-foreground hover:text-foreground"
+            className="text-sm text-muted-foreground hover:text-bead-blue"
           >
             ← All plugins
           </Link>
@@ -88,7 +88,7 @@ export default async function PluginDetailPage({
               href={plugin.github_url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-bead-blue"
             >
               <ExternalLink className="size-3.5" />
               View on GitHub
