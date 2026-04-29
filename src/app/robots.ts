@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/u/", "/settings", "/auth/"],
       },
     ],
-    sitemap: "https://the-ai-temple.vercel.app/sitemap.xml",
-    host: "https://the-ai-temple.vercel.app",
+    sitemap: "https://ai-temple-eta.vercel.app/sitemap.xml",
+    host: "https://ai-temple-eta.vercel.app",
   };
 }

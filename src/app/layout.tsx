@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   description:
     "A library of AI plugins, skills, courses, and articles for Temple of the Sun. Apply, learn, mine nuggets and gemstones.",
-  metadataBase: new URL("https://the-ai-temple.vercel.app"),
+  metadataBase: new URL("https://ai-temple-eta.vercel.app"),
   openGraph: {
     title: "The AI Temple",
     description:
