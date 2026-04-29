@@ -27,6 +27,17 @@ function variantFromString(s: string): number {
   return Math.abs(h);
 }
 
+/**
+ * Dispatcher: renders a Nugget for bronze/silver/gold tiers and a
+ * Gemstone for special tier (gem kind looked up by `name`). The
+ * canonical entry point — use this anywhere an achievement visual
+ * should appear, never Nugget/Gemstone directly.
+ *
+ * @param name TROPHY_META.icon string (e.g. "Zap" for nuggets, "Citrine" for gems)
+ * @param tier bronze/silver/gold render as Nugget; special renders as Gemstone
+ * @param size sm (size-7), md (size-9), lg (size-12)
+ * @param animate apply the gem-shimmer (3D rotation) on render
+ */
 export function TrophyIcon({
   name,
   tier,
