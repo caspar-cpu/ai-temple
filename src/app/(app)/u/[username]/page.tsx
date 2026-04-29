@@ -6,6 +6,7 @@ import { getCurrentUser } from "@/lib/dal";
 import { Card, SectionLabel, BigNumber } from "@/components/ui/card";
 import { TrophyStack } from "@/components/trophy-stack";
 import { SunProgress } from "@/components/sun-progress";
+import { CopyButton } from "@/components/copy-button";
 import { trophyMeta } from "@/lib/points";
 import { cardHoverLift, linkFocusRing } from "@/lib/style";
 import { cn } from "@/lib/utils";
@@ -120,12 +121,18 @@ export default async function UserProfilePage({
           </p>
         </div>
         {isMe && (
-          <Link
-            href="/settings"
-            className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-          >
-            Edit profile
-          </Link>
+          <div className="flex shrink-0 items-center gap-3">
+            <CopyButton
+              text={`${process.env.NEXT_PUBLIC_SITE_URL ?? "https://ai-temple-eta.vercel.app"}/u/${profile.username}`}
+              label="Copy link"
+            />
+            <Link
+              href="/settings"
+              className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              Edit profile
+            </Link>
+          </div>
         )}
       </header>
 
