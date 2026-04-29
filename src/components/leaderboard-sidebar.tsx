@@ -30,8 +30,8 @@ export function LeaderboardSidebar({
   return (
     <aside
       className={cn(
-        "sticky top-0 h-dvh shrink-0 border-l border-border bg-muted/30 transition-all",
-        open ? "w-64" : "w-10",
+        "sticky top-0 hidden h-dvh shrink-0 border-l border-border bg-muted/30 transition-all md:block",
+        open ? "md:w-64" : "md:w-10",
       )}
     >
       <button
