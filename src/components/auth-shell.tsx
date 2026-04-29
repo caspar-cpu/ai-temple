@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { SunHorizon } from "@/components/sun-horizon";
 
+/**
+ * Centered single-card layout for unauthenticated/error surfaces:
+ * SunHorizon hero on top, the page's content (typically a Card) in the
+ * middle, and a small editorial wordmark linking to /about at the
+ * bottom. Used by /login, /auth/error, and /not-found.
+ */
 export function AuthShell({ children }: { children: React.ReactNode }) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-muted/30 px-6">

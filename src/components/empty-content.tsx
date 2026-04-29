@@ -2,6 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { SunMark } from "@/components/sun-mark";
 
+/**
+ * Centered empty-state Card with a soft SunMark, a Cormorant display
+ * heading, optional body copy, and a single primary CTA button. Used
+ * across /plugins, /skills, /articles, /courses, /teams/[slug] when
+ * lists return zero rows.
+ */
 export function EmptyContent({
   title,
   body,
