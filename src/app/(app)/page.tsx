@@ -28,7 +28,7 @@ const SECTIONS: Section[] = [
   {
     href: "/start-here",
     title: "Start here",
-    body: "The beginner journey. Seven lessons, mined one step at a time.",
+    body: "The beginner journey. Seven lessons to the Emerald of growth.",
     icon: Sparkles,
   },
   {
