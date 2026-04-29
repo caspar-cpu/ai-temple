@@ -15,6 +15,9 @@ export function TeamsMenu() {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Mount flag: portal target (document.body) only exists on client.
+    // The setState-in-effect lint flags this, but it's the standard
+    // hydration-safe portal pattern.
     setMounted(true);
   }, []);
 

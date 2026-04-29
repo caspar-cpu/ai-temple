@@ -65,6 +65,9 @@ export function QuizModal({
 
   useEffect(() => {
     if (!open) return;
+    // Reset view + selection when the modal opens. The setState-in-effect
+    // lint flags this, but it's a standard "init on prop change" pattern
+    // tied to the `open` lifecycle.
     setView({ kind: "loading" });
     setSelected(null);
     loadQuestion(contentType, contentKey).then(async (r) => {
