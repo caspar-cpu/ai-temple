@@ -3,6 +3,7 @@
 import { useEffect, useState, useTransition } from "react";
 import { X, AlertCircle, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SectionLabel } from "@/components/ui/card";
 import { TrophyIcon } from "@/components/trophy-icon";
 import { cn } from "@/lib/utils";
 import {
@@ -173,9 +174,7 @@ export function QuizModal({
 
         {view.kind === "ready" && (
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Quick check
-            </p>
+            <SectionLabel>Quick check</SectionLabel>
             <h3 className="mt-2 text-lg font-semibold tracking-tight">
               {view.question}
             </h3>
