@@ -10,7 +10,6 @@ import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
@@ -21,23 +20,24 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
 
-    const clean = email.trim().toLowerCase();
-    const cleanName = name.trim();
+    const cleanEmail = email.trim().toLowerCase();
     const cleanUsername = username
       .trim()
       .toLowerCase()
       .replace(/[^a-z0-9-]/g, "");
 
+    if (cleanUsername.length < 2) {
+      setError("Username must be at least 2 characters.");
+      return;
+    }
+
     setStatus("sending");
     const supabase = createClient();
     const { error: err } = await supabase.auth.signInWithOtp({
-      email: clean,
+      email: cleanEmail,
       options: {
         emailRedirectTo: `${window.location.origin}/auth/callback`,
-        data: {
-          ...(cleanName ? { full_name: cleanName } : {}),
-          ...(cleanUsername ? { username: cleanUsername } : {}),
-        },
+        data: { username: cleanUsername },
       },
     });
 
@@ -90,43 +90,25 @@ export default function LoginPage() {
               className={inputClass}
             />
 
-            <label htmlFor="name" className="mt-4 block text-sm font-medium">
-              Your name{" "}
-              <span className="text-xs text-muted-foreground">optional</span>
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Caspar Rose"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className={inputClass}
-            />
-
             <label
               htmlFor="username"
               className="mt-4 block text-sm font-medium"
             >
-              Username{" "}
-              <span className="text-xs text-muted-foreground">
-                optional · shown on the leaderboard
-              </span>
+              Username
             </label>
             <input
               id="username"
               name="username"
               type="text"
+              required
+              minLength={2}
+              maxLength={40}
               placeholder="caspar"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              pattern="[a-zA-Z0-9-]*"
+              pattern="[a-zA-Z0-9-]+"
               className={inputClass}
             />
-            <p className="mt-1 text-xs text-muted-foreground">
-              Lowercase letters, numbers, hyphens. We&apos;ll auto-fix it on
-              save.
-            </p>
 
             <Button
               type="submit"
