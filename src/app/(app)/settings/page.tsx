@@ -56,6 +56,13 @@ export default async function SettingsPage({
             </p>
           </div>
 
+          <Field
+            name="department"
+            label="Department or team"
+            placeholder="Marketing"
+            defaultValue={user.department ?? ""}
+          />
+
           <div className="flex items-center gap-3 pt-2">
             <Button type="submit">Save changes</Button>
             <Button href={`/u/${user.username}`} variant="ghost">

@@ -13,6 +13,7 @@ const Schema = z.object({
     .max(40)
     .regex(/^[a-z0-9-]+$/, "Lowercase letters, numbers, hyphens only")
     .optional(),
+  department: z.string().max(80).optional(),
 });
 
 function errorTo(message: string): never {
@@ -32,10 +33,12 @@ export async function updateProfile(formData: FormData) {
     .toLowerCase()
     .replace(/[^a-z0-9-]/g, "")
     .replace(/^-+|-+$/g, "");
+  const rawDept = (formData.get("department") as string | null)?.trim();
 
   const result = Schema.safeParse({
     full_name: rawName || undefined,
     username: rawUsername || undefined,
+    department: rawDept || undefined,
   });
 
   if (!result.success) {
@@ -43,9 +46,9 @@ export async function updateProfile(formData: FormData) {
     errorTo(first ? `${String(first.path[0])}: ${first.message}` : "Invalid input");
   }
 
-  const { full_name, username } = result.data;
+  const { full_name, username, department } = result.data;
 
-  if (!full_name && !username) {
+  if (!full_name && !username && department === undefined) {
     errorTo("Nothing to update");
   }
 
@@ -54,6 +57,9 @@ export async function updateProfile(formData: FormData) {
     .update({
       ...(full_name ? { full_name } : {}),
       ...(username ? { username } : {}),
+      ...(department !== undefined
+        ? { department: department || null }
+        : {}),
     })
     .eq("id", user.id);
 
