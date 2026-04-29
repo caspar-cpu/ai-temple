@@ -37,13 +37,13 @@ export function Nav({ user }: { user: Profile | null }) {
           <div className="flex items-center gap-3">
             <Link
               href={`/u/${user.username}`}
-              className="hidden text-sm text-muted-foreground hover:text-foreground sm:inline"
+              className="hidden text-sm text-muted-foreground hover:text-bead-blue sm:inline"
             >
               {user.full_name}
             </Link>
             <Link
               href="/settings"
-              className="hidden text-sm text-muted-foreground hover:text-foreground sm:inline"
+              className="hidden text-sm text-muted-foreground hover:text-bead-blue sm:inline"
               aria-label="Settings"
             >
               Settings
