@@ -7,6 +7,11 @@ type Contributor = {
   username: string;
 } | null;
 
+/**
+ * Pill linking to the contributor's profile, shown next to plugin/skill
+ * cards to credit who added the entry. Renders nothing when `contributor`
+ * is null (e.g. seeded entries with no attribution).
+ */
 export function ContributorTag({
   contributor,
   className,

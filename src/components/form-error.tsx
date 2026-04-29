@@ -1,5 +1,10 @@
 import { AlertCircle } from "lucide-react";
 
+/**
+ * Inline form error banner — bead-red border + tinted background, with
+ * an alert icon. Renders nothing when `message` is empty so callers can
+ * pass it unconditionally. ARIA `role="alert"` for screen-reader announce.
+ */
 export function FormError({ message }: { message?: string }) {
   if (!message) return null;
   return (

@@ -3,6 +3,12 @@ import { cn } from "@/lib/utils";
 
 export type SortOption = { value: string; label: string };
 
+/**
+ * Server-driven sort selector. Each option is a `<Link>` to the same
+ * route with a `?sort=` query param (omitted for the default option to
+ * keep canonical URLs clean). `preserved` carries forward unrelated
+ * params (e.g. category, search) across selections.
+ */
 export function SortPills({
   basePath,
   currentSort,
@@ -52,6 +58,11 @@ export function SortPills({
   );
 }
 
+/**
+ * Type-safe `?sort=` validator. Returns the value if it matches one of
+ * the allowed strings, otherwise the fallback. Use in server components
+ * after `searchParams` to narrow string → union literal.
+ */
 export function resolveSort<T extends string>(
   value: string | undefined,
   valid: readonly T[],
