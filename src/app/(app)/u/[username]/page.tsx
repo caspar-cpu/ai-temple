@@ -89,7 +89,7 @@ export default async function UserProfilePage({
 
   return (
     <div className="space-y-10">
-      <header className="flex items-center gap-4">
+      <header className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
         {profile.avatar_url ? (
           <Image
             src={profile.avatar_url}
