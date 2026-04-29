@@ -99,16 +99,24 @@ export default async function UserProfilePage({
             {profile.full_name.charAt(0)}
           </div>
         )}
-        <div>
+        <div className="flex-1">
           {isMe && <SectionLabel>Welcome back</SectionLabel>}
           <h1 className="text-3xl font-semibold tracking-tight">
             {profile.full_name}
           </h1>
           <p className="text-sm text-muted-foreground">
-            {profile.email}
+            @{profile.username}
             {profile.department && ` · ${profile.department}`}
           </p>
         </div>
+        {isMe && (
+          <Link
+            href="/settings"
+            className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+          >
+            Edit profile
+          </Link>
+        )}
       </header>
 
       <section className="grid gap-4 md:grid-cols-3">
