@@ -408,7 +408,7 @@ function LessonSection({
   const allDone = done === lesson.steps.length;
 
   return (
-    <section id={lesson.id}>
+    <section id={lesson.id} className="scroll-mt-32">
       <div className="flex items-center gap-3">
         <span
           className={cn(
