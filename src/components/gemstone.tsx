@@ -59,6 +59,14 @@ const PALETTES: Record<GemKind, Palette> = {
   },
 };
 
+/**
+ * An uncut faceted gemstone illustration with a crown table, four side
+ * facets, and a pavilion meeting at a point. Each `kind` picks a hue
+ * palette (light → mid → dark + glint) for the gradient + facet shading.
+ *
+ * @param kind one of: ruby, sapphire, emerald, citrine, garnet, diamond
+ * @param className size + color overrides via Tailwind utilities
+ */
 export function Gemstone({
   kind,
   className,
