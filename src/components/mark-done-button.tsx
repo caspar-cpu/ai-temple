@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Nugget } from "@/components/nugget";
 import { QuizModal } from "@/components/quiz-modal";
 import { POINTS, TROPHY_META, type TrophyKind } from "@/lib/points";
 import type { QuizContentType } from "@/lib/quiz-actions";
@@ -91,7 +91,11 @@ export function MarkDoneButton({
           justDone && "animate-just-mined",
         )}
       >
-        <Check className={btnSize === "md" ? "size-4" : "size-3.5"} />
+        <Nugget
+          tone="gold"
+          variant={contentKey.length}
+          className={btnSize === "md" ? "size-5" : "size-4"}
+        />
         {cfg.done}
       </span>
     );
