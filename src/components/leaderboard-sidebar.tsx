@@ -55,33 +55,39 @@ export function LeaderboardSidebar({
             Top miners
           </div>
 
-          <ol className="space-y-1">
-            {visible.map((row, i) => {
-              const isMe = row.id === currentUserId;
-              return (
-                <li key={row.id}>
-                  <Link
-                    href={`/u/${row.username}`}
-                    className={cn(
-                      "flex items-center justify-between gap-2 rounded-full px-3 py-1.5 text-sm transition",
-                      "hover:bg-background",
-                      isMe && "bg-background font-medium",
-                    )}
-                  >
-                    <span className="flex min-w-0 items-center gap-2">
-                      <span className="w-4 shrink-0 text-right text-xs text-muted-foreground">
-                        {i + 1}
+          {visible.length > 0 ? (
+            <ol className="space-y-1">
+              {visible.map((row, i) => {
+                const isMe = row.id === currentUserId;
+                return (
+                  <li key={row.id}>
+                    <Link
+                      href={`/u/${row.username}`}
+                      className={cn(
+                        "flex items-center justify-between gap-2 rounded-full px-3 py-1.5 text-sm transition",
+                        "hover:bg-background",
+                        isMe && "bg-background font-medium",
+                      )}
+                    >
+                      <span className="flex min-w-0 items-center gap-2">
+                        <span className="w-4 shrink-0 text-right text-xs text-muted-foreground">
+                          {i + 1}
+                        </span>
+                        <span className="truncate">{row.full_name}</span>
                       </span>
-                      <span className="truncate">{row.full_name}</span>
-                    </span>
-                    <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
-                      {row.total_points ?? 0}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ol>
+                      <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
+                        {row.total_points ?? 0}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ol>
+          ) : (
+            <p className="px-3 text-xs text-muted-foreground">
+              No miners yet. Be the first.
+            </p>
+          )}
 
           <Link
             href="/leaderboard"
