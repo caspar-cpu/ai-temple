@@ -362,10 +362,10 @@ export default async function StartHerePage() {
               You finished the journey.
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
-              +100 bonus points logged. Now you're free to explore and pick
+              +100 bonus points logged. Now you&apos;re free to explore and pick
               what takes your fancy, both from here and in any future training
-              session. This database will be referenced as we go, and it's free
-              for all of us to follow where our curiosity takes us.
+              session. This database will be referenced as we go, and it&apos;s
+              free for all of us to follow where our curiosity takes us.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Button href="/plugins">Browse plugins</Button>
