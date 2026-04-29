@@ -35,6 +35,19 @@ export function timeOfDayGreeting(now: Date = new Date()): string {
   return "Good evening";
 }
 
+/**
+ * 1-based ordinal of `userId` in a leaderboard ordered by points-desc,
+ * or null if absent. Wraps the `findIndex + 1 || null` idiom so call
+ * sites read declaratively.
+ */
+export function rankOf(
+  rows: { id: string | null }[],
+  userId: string,
+): number | null {
+  const idx = rows.findIndex((r) => r.id === userId);
+  return idx >= 0 ? idx + 1 : null;
+}
+
 export function formatRelative(date: string | Date) {
   const d = typeof date === "string" ? new Date(date) : date;
   const diff = Date.now() - d.getTime();

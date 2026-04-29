@@ -16,7 +16,7 @@ import { SunHorizon } from "@/components/sun-horizon";
 import { SunMark } from "@/components/sun-mark";
 import { TrophyStack } from "@/components/trophy-stack";
 import { cardHoverLift, linkFocusRing } from "@/lib/style";
-import { cn, isJustJoined, timeOfDayGreeting } from "@/lib/utils";
+import { cn, isJustJoined, rankOf, timeOfDayGreeting } from "@/lib/utils";
 
 type Section = {
   href: string;
@@ -101,8 +101,7 @@ export default async function HomePage() {
 
   const trophies = trophiesRes.data ?? [];
   const totalPoints = trophies.reduce((sum, t) => sum + t.points, 0);
-  const rank =
-    (rankRes.data ?? []).findIndex((r) => r.id === user.id) + 1 || null;
+  const rank = rankOf(rankRes.data ?? [], user.id);
   const recentTrophies = trophies.slice(0, 5);
 
   return (

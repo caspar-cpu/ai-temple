@@ -8,7 +8,7 @@ import { SortPills, resolveSort } from "@/components/sort-pills";
 import { SunMark } from "@/components/sun-mark";
 import { TrophyIcon } from "@/components/trophy-icon";
 import { trophyMeta } from "@/lib/points";
-import { cn, formatRelative } from "@/lib/utils";
+import { cn, formatRelative, rankOf } from "@/lib/utils";
 
 type RecentTrophy = {
   id: string;
@@ -105,7 +105,7 @@ export default async function LeaderboardPage({
   const recent = ((recentRes.data ?? []) as unknown as RecentTrophy[]).filter(
     (t) => t.profile && t.profile.username,
   );
-  const myRank = rows.findIndex((r) => r.id === user.id) + 1 || null;
+  const myRank = rankOf(rows, user.id);
   const winner = rows[0];
   const rest = rows.slice(1);
 

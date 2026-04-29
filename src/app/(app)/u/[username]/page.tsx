@@ -10,7 +10,7 @@ import { CopyButton } from "@/components/copy-button";
 import { SunMark } from "@/components/sun-mark";
 import { trophyMeta } from "@/lib/points";
 import { cardHoverLift, linkFocusRing } from "@/lib/style";
-import { cn } from "@/lib/utils";
+import { cn, rankOf } from "@/lib/utils";
 
 export default async function UserProfilePage({
   params,
@@ -63,8 +63,7 @@ export default async function UserProfilePage({
 
   const trophies = trophiesRes.data ?? [];
   const totalPoints = trophies.reduce((sum, t) => sum + t.points, 0);
-  const rank =
-    (rankRes.data ?? []).findIndex((r) => r.id === profile.id) + 1 || null;
+  const rank = rankOf(rankRes.data ?? [], profile.id);
   const plugins = pluginsRes.data ?? [];
 
   const tierCounts = trophies.reduce<Record<string, number>>((acc, t) => {
