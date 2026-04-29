@@ -105,7 +105,7 @@ export function TeamsMenu() {
               <Link
                 href="/teams"
                 onClick={() => setOpen(false)}
-                className="text-xs text-muted-foreground hover:text-foreground"
+                className="text-xs text-muted-foreground hover:text-bead-blue"
               >
                 See all teams →
               </Link>
