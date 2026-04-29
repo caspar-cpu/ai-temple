@@ -165,7 +165,10 @@ export default async function UserProfilePage({
       </section>
 
       <section>
-        <SectionLabel className="mb-4">Path to mastery</SectionLabel>
+        <div className="mb-4 flex items-center gap-1.5">
+          <SunMark className="size-3 text-primary" />
+          <SectionLabel>Path to mastery</SectionLabel>
+        </div>
         <Card className="flex items-center gap-6">
           <SunProgress
             done={masteryReached ? 25 : pluginsUsed}
