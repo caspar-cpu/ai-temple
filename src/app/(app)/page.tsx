@@ -72,7 +72,11 @@ const SECTIONS: Section[] = [
 export default async function HomePage() {
   const user = await getCurrentUser();
   const firstName = user.full_name?.split(" ")[0] ?? "miner";
-  const greeting = timeOfDayGreeting();
+  const justJoined =
+    Date.now() - new Date(user.created_at).getTime() < 60_000;
+  const greeting = justJoined
+    ? "Welcome to The AI Temple"
+    : timeOfDayGreeting();
   const supabase = await createClient();
 
   const [trophiesRes, rankRes] = await Promise.all([
