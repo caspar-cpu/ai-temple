@@ -106,7 +106,7 @@ export default async function HomePage() {
       <header className="text-center">
         <SunHorizon className="mx-auto h-24 w-full max-w-md" />
         <SectionLabel className="mt-4">The AI Temple</SectionLabel>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="mt-3 text-5xl font-semibold tracking-tight md:text-6xl">
           {greeting}, {firstName}.
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
