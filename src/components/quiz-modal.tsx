@@ -188,7 +188,7 @@ export function QuizModal({
                     className={cn(
                       "flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition",
                       selected === i
-                        ? "border-foreground bg-foreground/5"
+                        ? "border-bead-blue bg-bead-blue/5"
                         : "border-border hover:border-foreground/40",
                     )}
                   >
@@ -196,7 +196,7 @@ export function QuizModal({
                       className={cn(
                         "inline-flex size-6 shrink-0 items-center justify-center rounded-full border text-xs font-semibold",
                         selected === i
-                          ? "border-foreground bg-foreground text-background"
+                          ? "border-bead-blue bg-bead-blue text-pearl"
                           : "border-border text-muted-foreground",
                       )}
                     >
