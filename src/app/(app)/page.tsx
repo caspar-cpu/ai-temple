@@ -73,8 +73,10 @@ const SECTIONS: Section[] = [
 export default async function HomePage() {
   const user = await getCurrentUser();
   const firstName = user.full_name?.split(" ")[0] ?? "miner";
+  // First five minutes of being a member get the "Welcome to The AI Temple"
+  // greeting; after that, return to the time-of-day greeting.
   const justJoined =
-    Date.now() - new Date(user.created_at).getTime() < 60_000;
+    Date.now() - new Date(user.created_at).getTime() < 5 * 60_000;
   const greeting = justJoined
     ? "Welcome to The AI Temple"
     : timeOfDayGreeting();
