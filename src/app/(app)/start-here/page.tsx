@@ -250,7 +250,6 @@ export default async function StartHerePage() {
     doneSet.has(s.key),
   ).length;
   const journeyDone = doneCount >= TOTAL_STEPS;
-  const pct = Math.round((doneCount / TOTAL_STEPS) * 100);
 
   return (
     <div className="space-y-14">

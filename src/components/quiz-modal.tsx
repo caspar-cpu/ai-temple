@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { X, Check, AlertCircle, Lock } from "lucide-react";
+import { X, AlertCircle, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TrophyIcon } from "@/components/trophy-icon";
 import { cn } from "@/lib/utils";

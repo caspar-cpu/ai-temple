@@ -51,7 +51,7 @@ export function LeaderboardSidebar({
       {open && (
         <div className="p-4">
           <div className="mb-3 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            <SunMark className="size-3.5 text-primary" />
+            <SunMark className="size-3.5 text-bead-blue" />
             Top miners
           </div>
 

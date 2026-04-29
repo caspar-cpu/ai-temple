@@ -3,7 +3,7 @@ import Link from "next/link";
 import { focusRing } from "@/lib/style";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "tertiary" | "ghost";
+type Variant = "primary" | "secondary" | "tertiary" | "ghost" | "peacock";
 type Size = "md" | "sm";
 
 const VARIANTS: Record<Variant, string> = {
@@ -14,6 +14,8 @@ const VARIANTS: Record<Variant, string> = {
   tertiary:
     "border border-border bg-background text-foreground/80 hover:border-foreground/40 hover:text-foreground",
   ghost: "text-foreground/80 hover:text-foreground",
+  peacock:
+    "bg-bead-blue text-pearl shadow-sm hover:bg-bead-blue/90 disabled:opacity-60",
 };
 
 const SIZES: Record<Size, string> = {
