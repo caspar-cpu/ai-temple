@@ -116,7 +116,7 @@ export default async function HomePage() {
         <p className="mt-4">
           <Link
             href={`/u/${user.username}`}
-            className="text-sm text-muted-foreground underline-offset-4 hover:underline"
+            className="text-sm text-muted-foreground underline-offset-4 hover:text-bead-blue hover:underline"
           >
             View your profile →
           </Link>
