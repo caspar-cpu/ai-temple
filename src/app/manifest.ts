@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
       "AI plugins, skills, courses, and articles for Temple of the Sun.",
     start_url: "/",
     display: "standalone",
-    background_color: "#F5EFE5",
+    background_color: "#F2F0EB",
     theme_color: "#C18B2A",
     icons: [
       {
