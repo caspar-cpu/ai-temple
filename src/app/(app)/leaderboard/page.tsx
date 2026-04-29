@@ -258,6 +258,12 @@ export default async function LeaderboardPage({
                         earned{" "}
                         <span className="text-foreground/80">{meta.label}</span>
                       </span>
+                      {Date.now() - new Date(t.earned_at).getTime() <
+                        5 * 60_000 && (
+                        <span className="rounded-full bg-bead-red/10 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-bead-red">
+                          New
+                        </span>
+                      )}
                       <span className="ml-auto flex shrink-0 items-center gap-2 text-xs text-muted-foreground tabular-nums">
                         <span className="rounded-full bg-muted px-2 py-0.5 font-medium text-foreground/70">
                           +{t.points}
