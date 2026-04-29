@@ -41,6 +41,13 @@ export function Nav({ user }: { user: Profile | null }) {
             >
               {user.full_name}
             </Link>
+            <Link
+              href="/settings"
+              className="hidden text-sm text-muted-foreground hover:text-foreground sm:inline"
+              aria-label="Settings"
+            >
+              Settings
+            </Link>
             <form action="/auth/signout" method="post">
               <Button variant="secondary" size="sm" type="submit">
                 Sign out
