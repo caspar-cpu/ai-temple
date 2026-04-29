@@ -162,6 +162,8 @@ export default async function HomePage() {
         <ul className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {SECTIONS.map((s) => {
             const Icon = s.icon;
+            const isNavStyle =
+              s.href === "/start-here" || s.href === "/leaderboard";
             return (
               <li key={s.href}>
                 <Link
@@ -169,8 +171,18 @@ export default async function HomePage() {
                   className={cn("block h-full", linkFocusRing)}
                 >
                   <Card className={cn("h-full", cardHoverLift)}>
-                    <div className="flex size-10 items-center justify-center rounded-full bg-primary/10">
-                      <Icon className="size-5 text-primary" />
+                    <div
+                      className={cn(
+                        "flex size-10 items-center justify-center rounded-full",
+                        isNavStyle ? "bg-bead-blue/10" : "bg-primary/10",
+                      )}
+                    >
+                      <Icon
+                        className={cn(
+                          "size-5",
+                          isNavStyle ? "text-bead-blue" : "text-primary",
+                        )}
+                      />
                     </div>
                     <h3 className="mt-4 font-semibold">{s.title}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">
