@@ -19,6 +19,14 @@ export function extractCount(nested: unknown): number {
   return arr?.[0]?.count ?? 0;
 }
 
+/**
+ * Whether a profile was created within the given window (default 5 minutes).
+ * Used to show a special "Welcome to The AI Temple" greeting on first visit.
+ */
+export function isJustJoined(createdAt: string, withinMs = 5 * 60_000) {
+  return Date.now() - new Date(createdAt).getTime() < withinMs;
+}
+
 export function timeOfDayGreeting(now: Date = new Date()): string {
   const hour = now.getHours();
   if (hour < 5) return "Good night";

@@ -16,7 +16,7 @@ import { SunHorizon } from "@/components/sun-horizon";
 import { SunMark } from "@/components/sun-mark";
 import { TrophyStack } from "@/components/trophy-stack";
 import { cardHoverLift, linkFocusRing } from "@/lib/style";
-import { cn, timeOfDayGreeting } from "@/lib/utils";
+import { cn, isJustJoined, timeOfDayGreeting } from "@/lib/utils";
 
 type Section = {
   href: string;
@@ -73,10 +73,7 @@ const SECTIONS: Section[] = [
 export default async function HomePage() {
   const user = await getCurrentUser();
   const firstName = user.full_name?.split(" ")[0] ?? "miner";
-  // First five minutes of being a member get the "Welcome to The AI Temple"
-  // greeting; after that, return to the time-of-day greeting.
-  const justJoined =
-    Date.now() - new Date(user.created_at).getTime() < 5 * 60_000;
+  const justJoined = isJustJoined(user.created_at);
   const greeting = justJoined
     ? "Welcome to The AI Temple"
     : timeOfDayGreeting();
