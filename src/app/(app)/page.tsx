@@ -68,9 +68,18 @@ const SECTIONS: Section[] = [
   },
 ];
 
+function timeOfDayGreeting(): string {
+  const hour = new Date().getHours();
+  if (hour < 5) return "Good night";
+  if (hour < 12) return "Good morning";
+  if (hour < 18) return "Good afternoon";
+  return "Good evening";
+}
+
 export default async function HomePage() {
   const user = await getCurrentUser();
   const firstName = user.full_name?.split(" ")[0] ?? "miner";
+  const greeting = timeOfDayGreeting();
   const supabase = await createClient();
 
   const [trophiesRes, rankRes] = await Promise.all([
@@ -97,7 +106,7 @@ export default async function HomePage() {
         <SunHorizon className="mx-auto h-24 w-full max-w-md" />
         <SectionLabel className="mt-4">The AI Temple</SectionLabel>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-          Welcome, {firstName}.
+          {greeting}, {firstName}.
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
           Apply plugins. Read articles. Mine nuggets and gemstones. Your path is
