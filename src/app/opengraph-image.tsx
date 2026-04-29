@@ -7,15 +7,10 @@ export const alt = "The AI Temple";
 async function loadFont() {
   const cssRes = await fetch(
     "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600",
-    {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-      },
-    },
+    { headers: { "User-Agent": "Mozilla/5.0" } },
   );
   const css = await cssRes.text();
-  const match = css.match(/url\((https:\/\/[^)]+\.(?:woff2|woff|ttf))\)/);
+  const match = css.match(/url\((https:\/\/[^)]+\.ttf)\)/);
   if (!match) return null;
   const fontRes = await fetch(match[1]);
   return fontRes.arrayBuffer();
