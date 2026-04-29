@@ -19,9 +19,27 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The AI Temple",
+  title: {
+    default: "The AI Temple",
+    template: "%s · The AI Temple",
+  },
   description:
-    "A library of AI plugins, skills, courses, and articles for Temple of the Sun. Apply, learn, ascend.",
+    "A library of AI plugins, skills, courses, and articles for Temple of the Sun. Apply, learn, mine nuggets and gemstones.",
+  metadataBase: new URL("https://ai-temple-eta.vercel.app"),
+  openGraph: {
+    title: "The AI Temple",
+    description:
+      "A library of AI plugins, skills, courses, and articles for Temple of the Sun. Apply, learn, mine nuggets and gemstones.",
+    siteName: "The AI Temple",
+    type: "website",
+    locale: "en_GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The AI Temple",
+    description:
+      "AI plugins, skills, courses, and articles for Temple of the Sun.",
+  },
 };
 
 export default function RootLayout({
