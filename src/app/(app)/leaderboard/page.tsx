@@ -196,34 +196,31 @@ export default async function LeaderboardPage({
               const rank = i + 2;
               const isMe = row.id === user.id;
               return (
-                <li
-                  key={row.id}
-                  className={cn(
-                    "flex items-center gap-4 px-6 py-3 text-sm",
-                    isMe && "bg-muted/40",
-                  )}
-                >
-                  <span className="w-8 text-right tabular-nums text-muted-foreground">
-                    {rank}
-                  </span>
+                <li key={row.id}>
                   <Link
                     href={`/u/${row.username}`}
-                    className="flex-1 font-medium hover:underline"
+                    className={cn(
+                      "flex items-center gap-4 px-6 py-3 text-sm transition hover:bg-bead-blue/5",
+                      isMe && "bg-muted/40",
+                    )}
                   >
-                    {row.full_name}
-                  </Link>
-                  {row.department && (
-                    <span className="hidden rounded-full bg-muted px-2.5 py-0.5 text-xs text-muted-foreground sm:inline">
-                      {row.department}
+                    <span className="w-8 text-right tabular-nums text-muted-foreground">
+                      {rank}
                     </span>
-                  )}
-                  <span className="inline-flex w-16 items-center justify-end gap-1 text-xs tabular-nums text-muted-foreground">
-                    <Trophy className="size-3" />
-                    {row.trophy_count}
-                  </span>
-                  <span className="w-16 text-right font-semibold tabular-nums">
-                    {row.total_points}
-                  </span>
+                    <span className="flex-1 font-medium">{row.full_name}</span>
+                    {row.department && (
+                      <span className="hidden rounded-full bg-muted px-2.5 py-0.5 text-xs text-muted-foreground sm:inline">
+                        {row.department}
+                      </span>
+                    )}
+                    <span className="inline-flex w-16 items-center justify-end gap-1 text-xs tabular-nums text-muted-foreground">
+                      <Trophy className="size-3" />
+                      {row.trophy_count}
+                    </span>
+                    <span className="w-16 text-right font-semibold tabular-nums">
+                      {row.total_points}
+                    </span>
+                  </Link>
                 </li>
               );
             })}
