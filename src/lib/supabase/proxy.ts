@@ -8,6 +8,7 @@ const PUBLIC_PATHS = [
   "/auth/error",
   "/about",
   "/opengraph-image",
+  "/manifest.webmanifest",
 ];
 
 export async function updateSession(request: NextRequest) {
