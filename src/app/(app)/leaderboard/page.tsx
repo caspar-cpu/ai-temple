@@ -243,33 +243,30 @@ export default async function LeaderboardPage({
                 const meta = trophyMeta(t.kind);
                 if (!t.profile) return null;
                 return (
-                  <li
-                    key={t.id}
-                    className="flex items-center gap-3 px-6 py-3 text-sm"
-                  >
-                    <TrophyIcon
-                      name={meta.icon}
-                      tier={meta.tier}
-                      size="sm"
-                    />
+                  <li key={t.id}>
                     <Link
                       href={`/u/${t.profile.username}`}
-                      className="font-medium hover:underline"
+                      className="flex items-center gap-3 px-6 py-3 text-sm transition hover:bg-bead-blue/5"
                     >
-                      {t.profile.full_name}
+                      <TrophyIcon
+                        name={meta.icon}
+                        tier={meta.tier}
+                        size="sm"
+                      />
+                      <span className="font-medium">{t.profile.full_name}</span>
+                      <span className="truncate text-muted-foreground">
+                        earned{" "}
+                        <span className="text-foreground/80">{meta.label}</span>
+                      </span>
+                      <span className="ml-auto flex shrink-0 items-center gap-2 text-xs text-muted-foreground tabular-nums">
+                        <span className="rounded-full bg-muted px-2 py-0.5 font-medium text-foreground/70">
+                          +{t.points}
+                        </span>
+                        <span className="hidden sm:inline">
+                          {formatRelative(t.earned_at)}
+                        </span>
+                      </span>
                     </Link>
-                    <span className="truncate text-muted-foreground">
-                      earned{" "}
-                      <span className="text-foreground/80">{meta.label}</span>
-                    </span>
-                    <span className="ml-auto flex shrink-0 items-center gap-2 text-xs text-muted-foreground tabular-nums">
-                      <span className="rounded-full bg-muted px-2 py-0.5 font-medium text-foreground/70">
-                        +{t.points}
-                      </span>
-                      <span className="hidden sm:inline">
-                        {formatRelative(t.earned_at)}
-                      </span>
-                    </span>
                   </li>
                 );
               })}
