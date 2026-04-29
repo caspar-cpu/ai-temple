@@ -356,7 +356,7 @@ export default async function StartHerePage() {
         {journeyDone ? (
           <Card className="bg-primary/5 text-center">
             <div className="mx-auto inline-flex size-14 items-center justify-center rounded-full bg-primary/10">
-              <TrophyIcon name="Garnet" tier="special" size="lg" animate />
+              <TrophyIcon name="Emerald" tier="special" size="lg" animate />
             </div>
             <h2 className="mt-4 text-2xl font-semibold tracking-tight">
               You finished the journey.

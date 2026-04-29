@@ -116,10 +116,10 @@ export const TROPHY_META: Record<
     description: "Ticked off a Start Here step — bronze nugget.",
   },
   journey_completed: {
-    label: "Garnet of completion",
-    icon: "Garnet",
+    label: "Emerald of growth",
+    icon: "Emerald",
     tier: "special",
-    description: "Finished the full beginner journey — uncut garnet.",
+    description: "Finished the full beginner journey — uncut emerald.",
   },
   skill_used: {
     label: "Skill applied",
