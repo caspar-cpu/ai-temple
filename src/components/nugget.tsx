@@ -27,6 +27,15 @@ const TONES: Record<
   },
 };
 
+/**
+ * A cartoon-realistic metal nugget illustration. Three irregular pebble
+ * shapes are picked by `variant` (any integer; modulo 3 selects the path)
+ * so a list of nuggets reads as varied rather than identical.
+ *
+ * @param tone "gold" | "silver" | "bronze" — picks the radial gradient palette
+ * @param variant any integer (e.g. a hash of the kind/name) for shape variety
+ * @param className size + color overrides via Tailwind utilities
+ */
 export function Nugget({
   tone,
   className,
