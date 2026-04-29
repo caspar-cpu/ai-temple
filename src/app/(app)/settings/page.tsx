@@ -57,6 +57,11 @@ export default async function SettingsPage({
           </div>
         </form>
       </Card>
+
+      <p className="text-xs text-muted-foreground">
+        Signed in as{" "}
+        <span className="font-medium text-foreground">{user.email}</span>.
+      </p>
     </div>
   );
 }
