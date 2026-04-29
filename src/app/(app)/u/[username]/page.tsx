@@ -128,7 +128,7 @@ export default async function UserProfilePage({
             />
             <Link
               href="/settings"
-              className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+              className="text-sm text-muted-foreground underline-offset-4 hover:text-bead-blue hover:underline"
             >
               Edit profile
             </Link>
