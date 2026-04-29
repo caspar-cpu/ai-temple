@@ -49,7 +49,7 @@ export default async function SkillDetailPage({
         <div className="flex flex-wrap items-center gap-2">
           <Link
             href="/skills"
-            className="text-sm text-muted-foreground hover:text-foreground"
+            className="text-sm text-muted-foreground hover:text-bead-blue"
           >
             ← All skills
           </Link>

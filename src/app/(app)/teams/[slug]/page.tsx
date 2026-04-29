@@ -55,7 +55,7 @@ export default async function TeamDetailPage({
       <header>
         <Link
           href="/teams"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          className="text-sm text-muted-foreground hover:text-bead-blue"
         >
           ← All teams
         </Link>
