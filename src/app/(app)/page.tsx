@@ -15,7 +15,7 @@ import { BigNumber, Card, SectionLabel } from "@/components/ui/card";
 import { SunHorizon } from "@/components/sun-horizon";
 import { TrophyStack } from "@/components/trophy-stack";
 import { cardHoverLift, linkFocusRing } from "@/lib/style";
-import { cn } from "@/lib/utils";
+import { cn, timeOfDayGreeting } from "@/lib/utils";
 
 type Section = {
   href: string;
@@ -68,14 +68,6 @@ const SECTIONS: Section[] = [
     icon: Layers,
   },
 ];
-
-function timeOfDayGreeting(): string {
-  const hour = new Date().getHours();
-  if (hour < 5) return "Good night";
-  if (hour < 12) return "Good morning";
-  if (hour < 18) return "Good afternoon";
-  return "Good evening";
-}
 
 export default async function HomePage() {
   const user = await getCurrentUser();
