@@ -9,6 +9,8 @@ const PUBLIC_PATHS = [
   "/about",
   "/opengraph-image",
   "/manifest.webmanifest",
+  "/robots.txt",
+  "/sitemap.xml",
 ];
 
 export async function updateSession(request: NextRequest) {
