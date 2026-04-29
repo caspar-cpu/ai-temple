@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
@@ -89,9 +90,11 @@ export default async function UserProfilePage({
     <div className="space-y-10">
       <header className="flex items-center gap-4">
         {profile.avatar_url ? (
-          <img
+          <Image
             src={profile.avatar_url}
             alt={profile.full_name}
+            width={64}
+            height={64}
             className="gem-hex size-16 object-cover"
           />
         ) : (
