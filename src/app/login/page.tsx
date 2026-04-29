@@ -83,7 +83,7 @@ export default function LoginPage() {
                 setStatus("idle");
                 setError("");
               }}
-              className="mt-5 text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+              className="mt-5 text-xs text-muted-foreground underline-offset-4 hover:text-bead-blue hover:underline"
             >
               Use a different email
             </button>
