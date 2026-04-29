@@ -9,8 +9,13 @@ import {
 } from "@/components/about-sections";
 import { SunHorizon } from "@/components/sun-horizon";
 import { SunMark } from "@/components/sun-mark";
+import { getOptionalUser } from "@/lib/dal";
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const user = await getOptionalUser();
+  const enterHref = user ? "/" : "/login";
+  const enterLabel = user ? "Enter the Temple" : "Sign in";
+
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border/60 bg-background/95 px-6 backdrop-blur md:px-8">
@@ -20,8 +25,8 @@ export default function AboutPage() {
             The AI Temple
           </span>
         </Link>
-        <Button href="/login" size="sm">
-          Sign in
+        <Button href={enterHref} size="sm">
+          {enterLabel}
         </Button>
       </header>
 
@@ -38,7 +43,7 @@ export default function AboutPage() {
             current by pulling directly from GitHub.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button href="/login">Sign in</Button>
+            <Button href={enterHref}>{enterLabel}</Button>
             <Button href="#how-it-works" variant="secondary">
               How it works
             </Button>
@@ -59,10 +64,12 @@ export default function AboutPage() {
               Ready to start mining?
             </h2>
             <p className="mx-auto mt-2 max-w-lg text-muted-foreground">
-              Sign in with any email. No passwords. We send you a magic link.
+              {user
+                ? "Pick up where you left off."
+                : "Sign in with any email. No passwords. We send you a magic link."}
             </p>
             <div className="mt-6 flex justify-center">
-              <Button href="/login">Sign in</Button>
+              <Button href={enterHref}>{enterLabel}</Button>
             </div>
           </Card>
         </section>
