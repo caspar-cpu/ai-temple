@@ -4,6 +4,7 @@ import {
   Compass,
   GraduationCap,
   Layers,
+  Lightbulb,
   Sparkles,
   Wrench,
   type LucideIcon,
@@ -40,7 +41,7 @@ const SECTIONS: Section[] = [
     href: "/skills",
     title: "Skills",
     body: "Marketplace skills that ship a single capability.",
-    icon: Sparkles,
+    icon: Lightbulb,
   },
   {
     href: "/ai-tools",
