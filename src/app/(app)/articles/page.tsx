@@ -73,7 +73,7 @@ export default async function ArticlesPage({
             The reading room
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Curated AI writing. Tick when you've read one.
+            Curated AI writing. Tick when you&apos;ve read one.
           </p>
         </div>
         <Button href="/articles/submit">Add article</Button>

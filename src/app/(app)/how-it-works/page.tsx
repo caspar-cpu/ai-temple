@@ -36,7 +36,7 @@ export default function HowItWorksPage() {
             Ready to climb the board?
           </h2>
           <p className="mx-auto mt-2 max-w-lg text-muted-foreground">
-            Add a plugin, drop an article in, or tick off a course you've
+            Add a plugin, drop an article in, or tick off a course you&apos;ve
             already done.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">

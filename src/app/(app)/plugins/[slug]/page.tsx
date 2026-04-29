@@ -121,7 +121,7 @@ export default async function PluginDetailPage({
 
       {uses.length > 0 && (
         <section>
-          <SectionLabel className="mb-3">Who's used this</SectionLabel>
+          <SectionLabel className="mb-3">Who&apos;s used this</SectionLabel>
           <ul className="flex flex-wrap gap-2">
             {uses.map((u, i) =>
               u.user ? (

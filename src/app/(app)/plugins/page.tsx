@@ -106,7 +106,7 @@ export default async function PluginsPage({
               rel="noreferrer"
               className="font-medium text-primary hover:underline"
             >
-              DataCamp's plugin-building guide
+              DataCamp&apos;s plugin-building guide
             </a>{" "}
             and look at{" "}
             <a

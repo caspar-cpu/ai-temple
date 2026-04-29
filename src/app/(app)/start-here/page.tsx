@@ -262,7 +262,7 @@ export default async function StartHerePage() {
           This is the beginner path for anyone new to AI at the Temple. Read the
           pieces, watch the videos, tick things off. It takes a few focused
           hours spread over a week or two. By the time you reach the bottom,
-          you'll be fluent enough to follow along in any future training
+          you&apos;ll be fluent enough to follow along in any future training
           session and confident enough to start building your own things.
         </p>
 
@@ -283,7 +283,7 @@ export default async function StartHerePage() {
       </header>
 
       <section>
-        <SectionLabel>If you're not a developer</SectionLabel>
+        <SectionLabel>If you&apos;re not a developer</SectionLabel>
         <Card className="mt-3 bg-primary/5">
           <ul className="space-y-2 text-sm">
             <li>
@@ -343,7 +343,7 @@ export default async function StartHerePage() {
             Warm-up done. Ready when you are.
           </p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight">
-            Let's go into lesson one.
+            Let&apos;s go into lesson one.
           </h2>
         </div>
       </section>
@@ -386,7 +386,7 @@ export default async function StartHerePage() {
               Finish the journey to unlock Completed Beginner Reading
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              {TOTAL_STEPS - doneCount} to go. After this you're free to
+              {TOTAL_STEPS - doneCount} to go. After this you&apos;re free to
               explore wherever your curiosity takes you.
             </p>
           </Card>

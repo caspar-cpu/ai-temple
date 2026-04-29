@@ -209,7 +209,7 @@ export function QuizModal({
             </ol>
             <div className="mt-6 flex items-center justify-between">
               <p className="text-xs text-muted-foreground">
-                Get it wrong and you're locked out for 24 hours.
+                Get it wrong and you&apos;re locked out for 24 hours.
               </p>
               <Button
                 onClick={handleSubmit}
