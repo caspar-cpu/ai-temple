@@ -84,6 +84,7 @@ export default function LoginPage() {
               type="email"
               required
               autoFocus
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className={inputClass}
@@ -102,6 +103,7 @@ export default function LoginPage() {
               required
               minLength={2}
               maxLength={40}
+              autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               pattern="[a-zA-Z0-9-]+"
