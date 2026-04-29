@@ -13,6 +13,7 @@ import { getCurrentUser } from "@/lib/dal";
 import { createClient } from "@/lib/supabase/server";
 import { BigNumber, Card, SectionLabel } from "@/components/ui/card";
 import { SunHorizon } from "@/components/sun-horizon";
+import { SunMark } from "@/components/sun-mark";
 import { TrophyStack } from "@/components/trophy-stack";
 import { cardHoverLift, linkFocusRing } from "@/lib/style";
 import { cn, timeOfDayGreeting } from "@/lib/utils";
@@ -127,7 +128,10 @@ export default async function HomePage() {
 
       <section className="mx-auto w-full max-w-2xl">
         <div className="mb-3 flex items-baseline justify-between">
-          <SectionLabel>Your latest</SectionLabel>
+          <div className="flex items-center gap-1.5">
+            <SunMark className="size-3 text-primary" />
+            <SectionLabel>Your latest</SectionLabel>
+          </div>
           {trophies.length > 5 && (
             <Link
               href={`/u/${user.username}`}
