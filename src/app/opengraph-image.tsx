@@ -30,7 +30,7 @@ export default async function OGImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "hsl(38, 30%, 95%)",
+          background: "#F2F0EB",
           color: "hsl(0, 0%, 10%)",
           fontFamily: "Cormorant",
           padding: "60px",
