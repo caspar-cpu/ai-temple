@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Nugget } from "@/components/nugget";
 import { QuizModal } from "@/components/quiz-modal";
+import { TrophyIcon } from "@/components/trophy-icon";
 import { POINTS, TROPHY_META, type TrophyKind } from "@/lib/points";
 import type { QuizContentType } from "@/lib/quiz-actions";
 import { cn } from "@/lib/utils";
@@ -81,7 +81,6 @@ export function MarkDoneButton({
   const isDone = alreadyDone || justDone;
 
   if (isDone) {
-    const tier = meta.tier === "special" ? "gold" : meta.tier;
     return (
       <span
         className={cn(
@@ -92,10 +91,10 @@ export function MarkDoneButton({
           justDone && "animate-just-mined",
         )}
       >
-        <Nugget
-          tone={tier}
-          variant={contentKey.length}
-          className={btnSize === "md" ? "size-5" : "size-4"}
+        <TrophyIcon
+          name={meta.icon}
+          tier={meta.tier}
+          size={btnSize === "md" ? "sm" : "sm"}
         />
         {cfg.done}
       </span>
