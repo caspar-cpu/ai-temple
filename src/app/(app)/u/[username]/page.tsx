@@ -101,9 +101,16 @@ export default async function UserProfilePage({
         )}
         <div className="flex-1">
           {isMe && <SectionLabel>Welcome back</SectionLabel>}
-          <h1 className="text-3xl font-semibold tracking-tight">
-            {profile.full_name}
-          </h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-3xl font-semibold tracking-tight">
+              {profile.full_name}
+            </h1>
+            {profile.is_admin && (
+              <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium uppercase tracking-[0.16em] text-primary">
+                Admin
+              </span>
+            )}
+          </div>
           <p className="text-sm text-muted-foreground">
             @{profile.username}
             {profile.department && ` · ${profile.department}`}
