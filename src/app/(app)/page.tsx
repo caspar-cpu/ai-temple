@@ -101,8 +101,15 @@ export default async function HomePage() {
     <div className="space-y-14">
       <header className="text-center">
         <SunHorizon className="mx-auto h-24 w-full max-w-md" />
-        <SectionLabel className="mt-4">The AI Temple</SectionLabel>
-        <h1 className="mt-3 text-5xl font-semibold tracking-tight md:text-6xl">
+        {!justJoined && (
+          <SectionLabel className="mt-4">The AI Temple</SectionLabel>
+        )}
+        <h1
+          className={cn(
+            "text-5xl font-semibold tracking-tight md:text-6xl",
+            justJoined ? "mt-6" : "mt-3",
+          )}
+        >
           {greeting}, {firstName}.
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
