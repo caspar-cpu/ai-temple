@@ -115,6 +115,16 @@ table,
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .sun-haze,
+  .animate-sun-shine,
+  .animate-fade-in-delayed,
+  [class*="animate-gem-shimmer"],
+  [class*="animate-just-mined"] {
+    animation: none !important;
+  }
+}
+
 .sun-haze {
   animation: sun-haze 6s ease-in-out infinite;
 }
