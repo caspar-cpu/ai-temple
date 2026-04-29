@@ -4,6 +4,12 @@ import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Pill button that copies `text` to the clipboard and flashes a check
+ * for 1.5s. Used on plugin/skill detail pages for "copy install command"
+ * affordances. The label can be customised; the success state always
+ * reads "Copied".
+ */
 export function CopyButton({
   text,
   label = "Copy",

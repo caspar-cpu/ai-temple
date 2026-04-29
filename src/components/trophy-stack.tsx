@@ -15,6 +15,12 @@ type TrophyItem = {
 const SIZE = 48;
 const OFFSET = 22;
 
+/**
+ * Overlapping fan of nuggets/gems, newest first. Each tile shows the
+ * trophy meta on hover (label · points · relative time) and triggers
+ * the gem-shimmer animation. Renders an empty-state nudge when the
+ * user has no trophies yet. Used on the home dashboard and profile.
+ */
 export function TrophyStack({ trophies }: { trophies: TrophyItem[] }) {
   if (trophies.length === 0) {
     return (
