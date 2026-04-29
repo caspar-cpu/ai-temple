@@ -20,6 +20,9 @@ export default function LoginPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    // Hydration-safe localStorage prefill: SSR renders empty inputs, client
+    // populates from localStorage after mount. The set-state-in-effect lint
+    // flags this as a perf nag, but it's the correct hydration pattern.
     const savedEmail = localStorage.getItem(EMAIL_KEY);
     const savedUsername = localStorage.getItem(USERNAME_KEY);
     if (savedEmail) setEmail(savedEmail);
