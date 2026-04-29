@@ -25,9 +25,9 @@ export function Nav({ user }: { user: Profile | null }) {
         <Link
           href="/"
           aria-label="The AI Temple home"
-          className="flex items-center gap-3"
+          className="group flex items-center gap-3"
         >
-          <SunMark className="size-8 text-primary" />
+          <SunMark className="size-8 text-primary transition-transform duration-300 group-hover:scale-110" />
           <span className="hidden font-display text-base tracking-wide sm:inline">
             The AI Temple
           </span>
