@@ -96,7 +96,7 @@ export default async function OGImage() {
             display: "flex",
           }}
         >
-          Apply, learn, mine nuggets and gemstones.
+          Apply, learn, mine.
         </div>
 
         <div
