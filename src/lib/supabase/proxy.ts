@@ -2,6 +2,10 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import type { Database } from "@/types/db";
 
+// Paths that bypass the auth gate. Auth surfaces (/login, /auth/*), the
+// public marketing page (/about), and metadata routes that need to be
+// accessible to crawlers and social platforms (OG image, manifest, robots,
+// sitemap). The path matcher in `proxy.ts` already excludes static assets.
 const PUBLIC_PATHS = [
   "/login",
   "/auth/callback",
