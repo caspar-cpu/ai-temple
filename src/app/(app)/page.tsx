@@ -110,8 +110,7 @@ export default async function HomePage() {
           {greeting}, {firstName}.
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Apply plugins. Read articles. Mine nuggets and gemstones. Your path is
-          your own.
+          Apply, learn, mine. Your path is your own.
         </p>
         <p className="mt-4">
           <Link
