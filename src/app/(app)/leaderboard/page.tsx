@@ -141,13 +141,13 @@ export default async function LeaderboardPage({
       />
 
       {winner ? (
-        <Card className="bg-amber-50">
+        <Card className="bg-primary/5">
           <div className="flex items-center gap-4">
-            <div className="flex size-14 items-center justify-center rounded-full bg-amber-200/70">
-              <SunMark className="size-8 animate-sun-shine text-amber-700" />
+            <div className="flex size-14 items-center justify-center rounded-full bg-primary/15">
+              <SunMark className="size-8 animate-sun-shine text-primary" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-amber-800">
+              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
                 {winnerHeading}
               </p>
               <Link
