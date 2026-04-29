@@ -1,0 +1,13 @@
+import { SunHorizon } from "@/components/sun-horizon";
+
+export function AuthShell({ children }: { children: React.ReactNode }) {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center bg-muted/30 px-6">
+      <SunHorizon className="mb-6 h-20 w-full max-w-sm" />
+      {children}
+      <p className="mt-8 font-display text-[11px] uppercase tracking-[0.32em] text-muted-foreground/70">
+        The AI Temple
+      </p>
+    </main>
+  );
+}
