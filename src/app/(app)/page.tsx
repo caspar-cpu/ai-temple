@@ -23,6 +23,7 @@ type Section = {
   title: string;
   body: string;
   icon: LucideIcon;
+  accent: "primary" | "nav";
 };
 
 const SECTIONS: Section[] = [
@@ -31,42 +32,49 @@ const SECTIONS: Section[] = [
     title: "Start here",
     body: "The beginner journey. Seven lessons to the Emerald of growth.",
     icon: Sparkles,
+    accent: "nav",
   },
   {
     href: "/plugins",
     title: "Plugins",
     body: "Claude skills installed once, used by everyone.",
     icon: Wrench,
+    accent: "primary",
   },
   {
     href: "/skills",
     title: "Skills",
     body: "Marketplace skills that ship a single capability.",
     icon: Lightbulb,
+    accent: "primary",
   },
   {
     href: "/ai-tools",
     title: "AI Tools",
     body: "The 2026 field guide, pyramid-ordered.",
     icon: Compass,
+    accent: "primary",
   },
   {
     href: "/courses",
     title: "Courses",
     body: "Long-form learning. The biggest single nuggets.",
     icon: GraduationCap,
+    accent: "primary",
   },
   {
     href: "/articles",
     title: "Articles",
     body: "Curated reading. Bronze nuggets per read.",
     icon: BookOpen,
+    accent: "primary",
   },
   {
     href: "/leaderboard",
     title: "Leaderboard",
     body: "Top miners and the latest activity.",
     icon: Layers,
+    accent: "nav",
   },
 ];
 
@@ -177,8 +185,7 @@ export default async function HomePage() {
         <ul className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {SECTIONS.map((s) => {
             const Icon = s.icon;
-            const isNavStyle =
-              s.href === "/start-here" || s.href === "/leaderboard";
+            const isNav = s.accent === "nav";
             return (
               <li key={s.href}>
                 <Link
@@ -189,13 +196,13 @@ export default async function HomePage() {
                     <div
                       className={cn(
                         "flex size-10 items-center justify-center rounded-full",
-                        isNavStyle ? "bg-bead-blue/10" : "bg-primary/10",
+                        isNav ? "bg-bead-blue/10" : "bg-primary/10",
                       )}
                     >
                       <Icon
                         className={cn(
                           "size-5",
-                          isNavStyle ? "text-bead-blue" : "text-primary",
+                          isNav ? "text-bead-blue" : "text-primary",
                         )}
                       />
                     </div>
