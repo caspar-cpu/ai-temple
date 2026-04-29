@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SunHorizon } from "@/components/sun-horizon";
 
 export function AuthShell({ children }: { children: React.ReactNode }) {
@@ -5,9 +6,12 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
     <main className="flex min-h-screen flex-col items-center justify-center bg-muted/30 px-6">
       <SunHorizon className="mb-6 h-20 w-full max-w-sm" />
       {children}
-      <p className="mt-8 font-display text-[11px] uppercase tracking-[0.32em] text-muted-foreground/70">
+      <Link
+        href="/about"
+        className="mt-8 font-display text-[11px] uppercase tracking-[0.32em] text-muted-foreground/70 transition hover:text-muted-foreground"
+      >
         The AI Temple
-      </p>
+      </Link>
     </main>
   );
 }
