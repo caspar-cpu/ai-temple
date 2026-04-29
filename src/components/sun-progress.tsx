@@ -80,7 +80,7 @@ export function SunProgress({ done, total, size = 128 }: Props) {
         />
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="font-display text-base font-semibold tabular-nums text-primary-foreground mix-blend-difference">
+        <span className="font-display text-base font-semibold tabular-nums text-pearl drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)]">
           {Math.round(pct * 100)}%
         </span>
       </div>
