@@ -126,7 +126,7 @@ table,
 }
 
 .sun-haze {
-  animation: sun-haze 6s ease-in-out infinite;
+  animation: sun-haze 8s ease-in-out infinite;
 }
 
 @keyframes sun-haze {
