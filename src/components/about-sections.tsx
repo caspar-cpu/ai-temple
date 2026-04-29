@@ -1,6 +1,8 @@
 import { BookOpen, Lightbulb, Zap } from "lucide-react";
 import { Card, SectionLabel, BigNumber } from "@/components/ui/card";
 import { TrophyIcon } from "@/components/trophy-icon";
+import { cardHoverLift } from "@/lib/style";
+import { cn } from "@/lib/utils";
 import {
   POINTS,
   TROPHY_KINDS,
@@ -125,7 +127,12 @@ export function TrophyGallerySection() {
                   const points = POINTS[kind];
                   return (
                     <li key={kind}>
-                      <Card className="group flex h-full flex-col items-start transition hover:border-foreground/40">
+                      <Card
+                        className={cn(
+                          "group flex h-full flex-col items-start",
+                          cardHoverLift,
+                        )}
+                      >
                         <div className="group-hover:animate-gem-shimmer">
                           <TrophyIcon
                             name={meta.icon}
