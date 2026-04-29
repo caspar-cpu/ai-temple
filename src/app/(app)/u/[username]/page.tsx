@@ -7,6 +7,7 @@ import { Card, SectionLabel, BigNumber } from "@/components/ui/card";
 import { TrophyStack } from "@/components/trophy-stack";
 import { SunProgress } from "@/components/sun-progress";
 import { CopyButton } from "@/components/copy-button";
+import { SunMark } from "@/components/sun-mark";
 import { trophyMeta } from "@/lib/points";
 import { cardHoverLift, linkFocusRing } from "@/lib/style";
 import { cn } from "@/lib/utils";
@@ -104,7 +105,12 @@ export default async function UserProfilePage({
           </div>
         )}
         <div className="flex-1">
-          {isMe && <SectionLabel>Welcome back</SectionLabel>}
+          {isMe && (
+            <div className="flex items-center gap-1.5">
+              <SunMark className="size-3 text-bead-blue" />
+              <SectionLabel>Welcome back</SectionLabel>
+            </div>
+          )}
           <div className="flex flex-wrap items-center gap-2">
             <h1 className="text-3xl font-semibold tracking-tight">
               {profile.full_name}
