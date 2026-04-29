@@ -34,7 +34,7 @@ export default async function AboutPage() {
         <section className="text-center">
           <SunHorizon className="mx-auto mb-6 h-24 w-full max-w-md" />
           <SectionLabel>For everyone at Temple of the Sun</SectionLabel>
-          <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
+          <h1 className="mx-auto mt-4 max-w-3xl text-5xl font-semibold tracking-tight md:text-6xl">
             One library. Every AI plugin, course, and article, in one place.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
