@@ -3,6 +3,11 @@ import * as React from "react";
 const INPUT_BASE =
   "mt-1.5 w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:border-foreground/40 focus:ring-2 focus:ring-ring/20";
 
+/**
+ * Labelled form input with the shared `INPUT_BASE` styling. Auto-shows
+ * an "optional" badge next to the label when `required` is false. Set
+ * `textarea` for multi-line. Used in submit pages and /settings.
+ */
 export function Field({
   name,
   label,
