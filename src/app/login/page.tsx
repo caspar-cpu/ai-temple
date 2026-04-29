@@ -83,9 +83,6 @@ export default function LoginPage() {
             <h1 className="text-xl font-semibold tracking-tight">
               The AI Temple
             </h1>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Sign in with any email. We&apos;ll send you a magic link.
-            </p>
 
             <label htmlFor="email" className="mt-6 block text-sm font-medium">
               Email
