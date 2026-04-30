@@ -54,35 +54,35 @@ export function HowItWorksSection() {
       </h2>
       <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
         <HowCard
-          icon={<Wrench className="size-5 text-primary" />}
+          icon={<Wrench className="size-5 text-primary" aria-hidden="true" />}
           title="Plugins"
           body="Claude skills hosted on GitHub. Click into a plugin to see the install command, an example of how to invoke it, and the live SKILL.md. Tick 'I've used this' to log the win."
           points={POINTS.plugin_used}
           pointsLabel="per plugin applied"
         />
         <HowCard
-          icon={<Lightbulb className="size-5 text-primary" />}
+          icon={<Lightbulb className="size-5 text-primary" aria-hidden="true" />}
           title="Skills"
           body="Marketplace skills that bolt onto Claude. Each one ships a single capability — PDF, XLSX, slide-creator. Tick 'I've used this' when you put it to work."
           points={POINTS.skill_used}
           pointsLabel="per skill applied"
         />
         <HowCard
-          icon={<Compass className="size-5 text-primary" />}
+          icon={<Compass className="size-5 text-primary" aria-hidden="true" />}
           title="AI Tools"
           body="The 2026 field guide of AI tools, ordered by leverage. From flagship models down to niche utilities. Log the ones you've actually used."
           points={POINTS.ai_tool_used}
           pointsLabel="per tool applied"
         />
         <HowCard
-          icon={<GraduationCap className="size-5 text-primary" />}
+          icon={<GraduationCap className="size-5 text-primary" aria-hidden="true" />}
           title="Courses"
           body="AI courses from Anthropic and others. Completing one earns the biggest single nugget on the board. The most efficient way to climb the leaderboard."
           points={POINTS.course_completed}
           pointsLabel="per course completed"
         />
         <HowCard
-          icon={<BookOpen className="size-5 text-primary" />}
+          icon={<BookOpen className="size-5 text-primary" aria-hidden="true" />}
           title="Articles"
           body="Curated AI reading: Karpathy, Anthropic, and whatever's worth a read this week. Tick when you've read one and collect a bronze nugget."
           points={POINTS.article_read}
