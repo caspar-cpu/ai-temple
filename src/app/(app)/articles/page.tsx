@@ -84,11 +84,13 @@ export default async function ArticlesPage({
           name="q"
           defaultValue={q ?? ""}
           placeholder="Search articles"
+          aria-label="Search articles"
           className={`flex-1 ${inputClass}`}
         />
         <select
           name="source"
           defaultValue={source ?? ""}
+          aria-label="Filter by source"
           className={inputClass + " sm:w-56"}
         >
           <option value="">All sources</option>

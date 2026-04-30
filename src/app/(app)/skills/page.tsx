@@ -80,11 +80,13 @@ export default async function SkillsPage({
           name="q"
           defaultValue={q ?? ""}
           placeholder="Search skills"
+          aria-label="Search skills"
           className={`flex-1 ${inputClass}`}
         />
         <select
           name="category"
           defaultValue={category ?? ""}
+          aria-label="Filter by category"
           className={inputClass + " sm:w-56"}
         >
           <option value="">All categories</option>

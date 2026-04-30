@@ -128,11 +128,13 @@ export default async function PluginsPage({
           name="q"
           defaultValue={q ?? ""}
           placeholder="Search plugins"
+          aria-label="Search plugins"
           className={`flex-1 ${inputClass}`}
         />
         <select
           name="dept"
           defaultValue={dept ?? ""}
+          aria-label="Filter by department"
           className={inputClass + " sm:w-56"}
         >
           <option value="">All departments</option>

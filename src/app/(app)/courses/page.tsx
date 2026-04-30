@@ -90,11 +90,13 @@ export default async function CoursesPage({
           name="q"
           defaultValue={q ?? ""}
           placeholder="Search courses"
+          aria-label="Search courses"
           className={`flex-1 ${inputClass}`}
         />
         <select
           name="provider"
           defaultValue={provider ?? ""}
+          aria-label="Filter by provider"
           className={inputClass + " sm:w-56"}
         >
           <option value="">All providers</option>
