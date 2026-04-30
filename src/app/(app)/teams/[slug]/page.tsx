@@ -186,12 +186,15 @@ export default async function TeamDetailPage({
       <section>
         <Card className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            Missing something? Add a plugin, article, or course for{" "}
+            Missing something? Add a plugin, skill, article, or course for{" "}
             {team.name}.
           </p>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Button href="/plugins/submit" size="sm" variant="secondary">
               Add plugin
+            </Button>
+            <Button href="/skills/submit" size="sm" variant="secondary">
+              Add skill
             </Button>
             <Button href="/articles/submit" size="sm" variant="secondary">
               Add article
