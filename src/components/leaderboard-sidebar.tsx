@@ -35,6 +35,7 @@ export function LeaderboardSidebar({
 
   return (
     <aside
+      aria-label="Top miners"
       className={cn(
         "sticky top-0 hidden h-dvh shrink-0 border-l border-border bg-muted/30 transition-all md:block",
         open ? "md:w-64" : "md:w-10",
@@ -43,8 +44,9 @@ export function LeaderboardSidebar({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex h-10 w-full items-center justify-center border-b border-border text-muted-foreground hover:text-bead-blue"
+        aria-expanded={open}
         aria-label={open ? "Collapse leaderboard" : "Expand leaderboard"}
+        className="flex h-10 w-full items-center justify-center border-b border-border text-muted-foreground hover:text-bead-blue"
       >
         <ChevronRight
           className={cn(
