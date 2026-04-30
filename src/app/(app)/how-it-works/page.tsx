@@ -36,11 +36,14 @@ export default function HowItWorksPage() {
             Ready to climb the board?
           </h2>
           <p className="mx-auto mt-2 max-w-lg text-muted-foreground">
-            Add a plugin, drop an article in, or tick off a course you&apos;ve
-            already done.
+            Add a plugin or a skill, drop an article in, or tick off a course
+            you&apos;ve already done.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button href="/plugins/submit">Add a plugin</Button>
+            <Button href="/skills/submit" variant="secondary">
+              Add a skill
+            </Button>
             <Button href="/articles/submit" variant="secondary">
               Add an article
             </Button>
