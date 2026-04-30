@@ -15,7 +15,7 @@ import { BigNumber, Card, SectionLabel } from "@/components/ui/card";
 import { SunHorizon } from "@/components/sun-horizon";
 import { SunMark } from "@/components/sun-mark";
 import { TrophyStack } from "@/components/trophy-stack";
-import { cardHoverLift, linkFocusRing } from "@/lib/style";
+import { cardHoverLift, linkFocusRing, peacockHoverFocus } from "@/lib/style";
 import { cn, isJustJoined, rankOf, timeOfDayGreeting } from "@/lib/utils";
 
 type Section = {
@@ -156,14 +156,14 @@ export default async function HomePage() {
         <Card className="grid grid-cols-1 divide-y divide-border p-0 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           <Link
             href={`/u/${user.username}`}
-            className="px-6 py-5 text-center transition hover:bg-bead-blue/5 focus-visible:bg-bead-blue/10 focus-visible:outline-none"
+            className={cn("px-6 py-5 text-center", peacockHoverFocus)}
           >
             <SectionLabel>Points</SectionLabel>
             <BigNumber className="mt-2 text-3xl">{totalPoints}</BigNumber>
           </Link>
           <Link
             href="/leaderboard"
-            className="px-6 py-5 text-center transition hover:bg-bead-blue/5 focus-visible:bg-bead-blue/10 focus-visible:outline-none"
+            className={cn("px-6 py-5 text-center", peacockHoverFocus)}
           >
             <SectionLabel>Rank</SectionLabel>
             <BigNumber className="mt-2 text-3xl">
@@ -172,7 +172,7 @@ export default async function HomePage() {
           </Link>
           <Link
             href={`/u/${user.username}`}
-            className="px-6 py-5 text-center transition hover:bg-bead-blue/5 focus-visible:bg-bead-blue/10 focus-visible:outline-none"
+            className={cn("px-6 py-5 text-center", peacockHoverFocus)}
           >
             <SectionLabel>Nuggets &amp; gems</SectionLabel>
             <BigNumber className="mt-2 text-3xl">{trophies.length}</BigNumber>

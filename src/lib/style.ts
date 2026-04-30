@@ -12,3 +12,9 @@ export const focusRing =
 /** Link wrapper: the focus ring above plus rounded-lg so the ring follows
  *  the natural card corner. */
 export const linkFocusRing = `rounded-lg ${focusRing}`;
+
+/** Peacock-tinted hover/focus background. Used on stat-banner cells
+ *  and leaderboard rows where the hover state should hint navigability
+ *  without a full button treatment. */
+export const peacockHoverFocus =
+  "transition hover:bg-bead-blue/5 focus-visible:bg-bead-blue/10 focus-visible:outline-none";
