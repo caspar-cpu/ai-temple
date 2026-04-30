@@ -31,12 +31,12 @@ export const metadata: Metadata = {
     template: "%s · The AI Temple",
   },
   description:
-    "AI plugins, skills, courses, and articles for Temple of the Sun. Apply, learn, mine.",
+    "AI plugins, skills, tools, courses, and articles for Temple of the Sun. Apply, learn, mine.",
   metadataBase: new URL("https://ai-temple-eta.vercel.app"),
   openGraph: {
     title: "The AI Temple",
     description:
-      "AI plugins, skills, courses, and articles for Temple of the Sun. Apply, learn, mine.",
+      "AI plugins, skills, tools, courses, and articles for Temple of the Sun. Apply, learn, mine.",
     siteName: "The AI Temple",
     type: "website",
     locale: "en_GB",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The AI Temple",
     description:
-      "AI plugins, skills, courses, and articles for Temple of the Sun. Apply, learn, mine.",
+      "AI plugins, skills, tools, courses, and articles for Temple of the Sun. Apply, learn, mine.",
   },
 };
 

@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "The AI Temple",
     short_name: "AI Temple",
     description:
-      "AI plugins, skills, courses, and articles for Temple of the Sun.",
+      "AI plugins, skills, tools, courses, and articles for Temple of the Sun.",
     start_url: "/",
     display: "standalone",
     background_color: "#F2F0EB",
