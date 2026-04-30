@@ -197,8 +197,10 @@ export default async function LeaderboardPage({
       )}
 
       {rest.length > 0 && (
-        <Card className="p-0">
-          <ol className="divide-y divide-border">
+        <>
+          <h2 className="sr-only">Other miners</h2>
+          <Card className="p-0">
+            <ol className="divide-y divide-border">
             {rest.map((row, i) => {
               const rank = i + 2;
               const isMe = row.id === user.id;
@@ -231,8 +233,9 @@ export default async function LeaderboardPage({
                 </li>
               );
             })}
-          </ol>
-        </Card>
+            </ol>
+          </Card>
+        </>
       )}
 
       {!myRank && rows.length > 0 && (
@@ -242,7 +245,10 @@ export default async function LeaderboardPage({
       )}
 
       {recent.length > 0 && (
-        <section>
+        <section aria-labelledby="recently-mined-heading">
+          <h2 id="recently-mined-heading" className="sr-only">
+            Recently mined
+          </h2>
           <SectionLabel className="mb-3">Recently mined</SectionLabel>
           <Card className="p-0">
             <ul className="divide-y divide-border">
