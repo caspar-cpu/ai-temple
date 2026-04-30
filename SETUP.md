@@ -6,7 +6,7 @@
 - Supabase (Postgres + Auth + RLS) — link to your own new project
 - Schema + trophy triggers + leaderboard view applied via migration
 - Auth: email magic link, open to any email domain
-- Pages: dashboard, plugins (list/detail/submit), articles (list/submit), courses (list/submit), profile, full leaderboard
+- Pages: dashboard, plugins (list/detail/submit), skills (list/detail/submit), AI tools (list/detail), articles (list/submit), courses (list/submit), start-here onboarding journey, teams, profile, full leaderboard
 - Right-hand collapsible leaderboard sidebar
 - Trophies awarded automatically by Postgres triggers when you tick "used", "read", "completed", or contribute
 
@@ -41,11 +41,12 @@ Open `http://localhost:3000`, sign in with any email, click the magic link in yo
 
 Once you're signed in, there are "Add" buttons on each section:
 
-- **Plugins** → point to a GitHub blob URL for a `SKILL.md`. Warehouse fetches it live, so pushing to GitHub updates everyone instantly.
+- **Plugins** → point to a GitHub blob URL for a `SKILL.md`. The Temple fetches it live, so pushing to GitHub updates everyone instantly.
+- **Skills** → marketplace-style single-capability skills with install command + invocation prompt.
 - **Articles** → title, URL, author, source, short description.
 - **Courses** → title, URL, provider, estimated hours.
 
-Each contribution earns points — 50 for a plugin, 5 for an article or course.
+Each contribution earns points — 50 for a plugin, 30 for a skill, 5 for an article or course.
 
 ## Deploying to Vercel
 
@@ -66,14 +67,19 @@ Then add the Vercel URL to Supabase's Redirect URLs.
 
 | Activity | Points |
 | --- | --- |
+| Tick an onboarding step | 5 |
 | Read an article | 10 |
+| Apply an AI tool | 20 |
+| Apply a skill | 20 |
 | Apply a plugin | 25 |
-| Contribute a plugin | 50 |
-| Complete a course | 100 |
 | Add an article | 5 |
 | Add a course | 5 |
+| Add a skill | 30 |
+| Contribute a plugin | 50 |
+| Complete a course | 100 |
 | First plugin used | +20 |
 | 5 / 10 / 25 plugins used | +50 / +100 / +200 |
+| Finish the full onboarding journey | +100 |
 | Your plugin used by 10 people | +150 |
 
 All defined in [src/lib/points.ts](src/lib/points.ts) and awarded via Postgres triggers in the migration.

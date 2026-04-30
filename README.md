@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The AI Temple
 
-## Getting Started
+Internal AI-skills warehouse for staff at Temple of the Sun. Apply, learn, mine.
 
-First, run the development server:
+A gamified library of:
+
+- **Plugins** — Claude skills hosted on GitHub, install once and use everywhere
+- **Skills** — marketplace skills that ship a single capability
+- **AI Tools** — the 2026 field guide, ordered by leverage
+- **Courses** — long-form learning from Anthropic and others
+- **Articles** — curated AI reading
+
+Every tick / read / contribute earns nuggets and gemstones, ranked on a live leaderboard.
+
+## Tech
+
+- Next.js 16 (App Router) + React 19, TypeScript, Tailwind 4
+- Supabase (Postgres + Auth via magic link + RLS + Postgres trigger-driven trophy logic)
+- Cormorant Garamond (display) + Inter (body) + JetBrains Mono via `next/font/google`
+- Custom Nugget + Gemstone SVG components for achievement visuals
+
+## Local dev
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local   # fill in Supabase URL + anon key
+pnpm dev                     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Full setup, including Supabase auth-URL configuration and Vercel env vars, is in [SETUP.md](SETUP.md).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Production: https://ai-temple-eta.vercel.app (Vercel project `ai-temple`, region pinned to `lhr1` to co-locate with Supabase eu-west-2).
