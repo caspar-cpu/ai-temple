@@ -2,6 +2,13 @@ import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 import type { Database } from "@/types/db";
 
+/**
+ * Server-component / server-action Supabase client. Reads + writes
+ * auth cookies via Next.js's async `cookies()`. The setAll catch is
+ * deliberate: Server Components can't mutate cookies, so the write
+ * silently fails and the proxy middleware refreshes the session on
+ * the next request.
+ */
 export async function createClient() {
   const cookieStore = await cookies();
 
