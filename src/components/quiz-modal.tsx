@@ -31,6 +31,16 @@ function formatLockout(minutes: number) {
   return `${minutes} minute${minutes === 1 ? "" : "s"}`;
 }
 
+/**
+ * Modal that gates a "mark as done" action behind a one-question quiz.
+ * Lifecycle:
+ *   1. `open` flips true → fetch question via server action
+ *   2. user picks an option → `submitQuiz` validates, awards trophy
+ *   3. `onCorrect` notifies parent so it can flip to the done-pill state
+ * If the content has no quiz, a fallback `markWithoutQuiz` server
+ * action grants the trophy unconditionally. Wrong answers trigger a
+ * server-enforced cooldown (`locked` state).
+ */
 export function QuizModal({
   open,
   onClose,
