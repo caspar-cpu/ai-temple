@@ -66,13 +66,15 @@ export function Nav({ user }: { user: Profile | null }) {
 
       {user && (
         <div className="flex h-12 items-center gap-2 overflow-x-auto border-b border-border/60 bg-muted/30 px-6 md:px-8">
-          <Link
+          <Button
             href="/start-here"
-            className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full bg-bead-blue px-3 text-xs font-semibold text-pearl shadow-sm transition hover:bg-bead-blue/90"
+            variant="peacock"
+            size="sm"
+            className="shrink-0"
           >
             <Sparkles className="size-3.5" />
             Start here
-          </Link>
+          </Button>
           {LINKS.map((l) => (
             <Button
               key={l.href}
