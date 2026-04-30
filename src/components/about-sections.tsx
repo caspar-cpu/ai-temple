@@ -182,23 +182,29 @@ export function ContributeSection() {
         Anyone at Temple of the Sun can contribute
       </SectionLabel>
       <h2 className="mt-3 text-center text-3xl font-semibold tracking-tight">
-        Add a plugin, article, or course
+        Add a plugin, skill, course, or article
       </h2>
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
         <Card>
-          <BigNumber>50</BigNumber>
+          <BigNumber>{POINTS.plugin_contributed}</BigNumber>
           <p className="mt-2 text-sm text-muted-foreground">
             Points for adding a plugin. Name, description, and a GitHub link.
           </p>
         </Card>
         <Card>
-          <BigNumber>5</BigNumber>
+          <BigNumber>{POINTS.skill_contributed}</BigNumber>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Points for adding a skill. Name, description, GitHub link.
+          </p>
+        </Card>
+        <Card>
+          <BigNumber>{POINTS.course_contributed}</BigNumber>
           <p className="mt-2 text-sm text-muted-foreground">
             Points for adding a course. Title, URL, provider.
           </p>
         </Card>
         <Card>
-          <BigNumber>5</BigNumber>
+          <BigNumber>{POINTS.article_contributed}</BigNumber>
           <p className="mt-2 text-sm text-muted-foreground">
             Points for adding an article. Title, URL, author.
           </p>
