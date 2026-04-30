@@ -28,7 +28,7 @@ export function ContributorTag({
         className,
       )}
     >
-      <UserPlus className="size-3" />
+      <UserPlus className="size-3" aria-hidden="true" />
       {contributor.full_name}
     </Link>
   );

@@ -72,7 +72,7 @@ export function Nav({ user }: { user: Profile | null }) {
             size="sm"
             className="shrink-0"
           >
-            <Sparkles className="size-3.5" />
+            <Sparkles className="size-3.5" aria-hidden="true" />
             Start here
           </Button>
           {LINKS.map((l) => (

@@ -173,7 +173,7 @@ export function QuizModal({
         {view.kind === "locked" && (
           <div className="text-center">
             <div className="mx-auto inline-flex size-12 items-center justify-center rounded-full bg-muted">
-              <Lock className="size-5 text-muted-foreground" />
+              <Lock className="size-5 text-muted-foreground" aria-hidden="true" />
             </div>
             <h3 className="mt-3 text-lg font-semibold tracking-tight">
               Come back in {formatLockout(view.minutesUntil)}
@@ -255,7 +255,7 @@ export function QuizModal({
         {view.kind === "wrong" && (
           <div className="text-center">
             <div className="mx-auto inline-flex size-12 items-center justify-center rounded-full bg-destructive/10">
-              <AlertCircle className="size-5 text-destructive" />
+              <AlertCircle className="size-5 text-destructive" aria-hidden="true" />
             </div>
             <h3 className="mt-3 text-lg font-semibold tracking-tight">
               Not quite.
@@ -285,7 +285,7 @@ export function QuizModal({
         {view.kind === "error" && (
           <div className="text-center">
             <div className="mx-auto inline-flex size-12 items-center justify-center rounded-full bg-destructive/10">
-              <AlertCircle className="size-5 text-destructive" />
+              <AlertCircle className="size-5 text-destructive" aria-hidden="true" />
             </div>
             <h3 className="mt-3 text-lg font-semibold tracking-tight">
               Something went wrong.
