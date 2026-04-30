@@ -20,6 +20,14 @@ function errorTo(message: string): never {
   redirect(`/settings?error=${encodeURIComponent(message)}`);
 }
 
+/**
+ * Profile editor server action. Sanitises username (lowercases, strips
+ * disallowed chars, trims edge hyphens) before Zod validation. Skips
+ * any field left blank instead of writing nulls. Postgres unique-
+ * violation (23505) is reported as a friendly "username taken"
+ * message. Layout-revalidates so the nav reflects the new name on
+ * next render, then redirects to the profile page.
+ */
 export async function updateProfile(formData: FormData) {
   const supabase = await createClient();
   const {
