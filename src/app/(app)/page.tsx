@@ -199,6 +199,7 @@ export default async function HomePage() {
                       )}
                     >
                       <Icon
+                        aria-hidden="true"
                         className={cn(
                           "size-5",
                           isNav ? "text-bead-blue" : "text-primary",

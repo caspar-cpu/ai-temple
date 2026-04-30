@@ -139,7 +139,10 @@ export default async function CoursesPage({
               <li key={c.id}>
                 <Card className="flex h-full flex-col">
                   <div className="flex items-start gap-2">
-                    <GraduationCap className="mt-0.5 size-5 text-primary" />
+                    <GraduationCap
+                      className="mt-0.5 size-5 text-primary"
+                      aria-hidden="true"
+                    />
                     <a
                       href={c.url}
                       target="_blank"

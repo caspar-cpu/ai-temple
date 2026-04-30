@@ -221,7 +221,7 @@ export default async function LeaderboardPage({
                       </span>
                     )}
                     <span className="inline-flex w-16 items-center justify-end gap-1 text-xs tabular-nums text-muted-foreground">
-                      <Trophy className="size-3" />
+                      <Trophy className="size-3" aria-hidden="true" />
                       {row.trophy_count}
                     </span>
                     <span className="w-16 text-right font-semibold tabular-nums">
