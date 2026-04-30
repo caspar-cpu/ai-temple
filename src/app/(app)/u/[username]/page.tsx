@@ -163,9 +163,12 @@ export default async function UserProfilePage({
         </Card>
       </section>
 
-      <section>
+      <section aria-labelledby="mastery-heading">
+        <h2 id="mastery-heading" className="sr-only">
+          Path to mastery
+        </h2>
         <div className="mb-4 flex items-center gap-1.5">
-          <SunMark className="size-3 text-primary" />
+          <SunMark className="size-3 text-primary" aria-hidden="true" />
           <SectionLabel>Path to mastery</SectionLabel>
         </div>
         <Card className="flex items-center gap-6">
@@ -186,7 +189,10 @@ export default async function UserProfilePage({
         </Card>
       </section>
 
-      <section>
+      <section aria-labelledby="trophies-heading">
+        <h2 id="trophies-heading" className="sr-only">
+          Nuggets and gems
+        </h2>
         <SectionLabel className="mb-4">Nuggets &amp; gems</SectionLabel>
         <Card>
           <TrophyStack trophies={trophies} />
@@ -199,7 +205,10 @@ export default async function UserProfilePage({
       </section>
 
       {isMe && (
-        <section>
+        <section aria-labelledby="explore-heading">
+          <h2 id="explore-heading" className="sr-only">
+            Keep exploring
+          </h2>
           <SectionLabel className="mb-3">Keep exploring</SectionLabel>
           <div className="grid gap-4 sm:grid-cols-3">
             <ExploreCard
@@ -222,7 +231,10 @@ export default async function UserProfilePage({
       )}
 
       {plugins.length > 0 && (
-        <section>
+        <section aria-labelledby="contributed-heading">
+          <h2 id="contributed-heading" className="sr-only">
+            Plugins contributed
+          </h2>
           <SectionLabel className="mb-3">Plugins contributed</SectionLabel>
           <ul className="space-y-3">
             {plugins.map((p) => (
