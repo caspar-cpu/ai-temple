@@ -1,3 +1,10 @@
+/**
+ * Source-of-truth list of every trophy kind. The matching enum lives
+ * in the database (`user_trophies.kind` check constraint + the
+ * `award_trophy` trigger) — adding a kind here without a migration
+ * will fail at insert. Keep this array, the DB enum, and TROPHY_META
+ * in lockstep.
+ */
 export const TROPHY_KINDS = [
   "plugin_used",
   "plugin_contributed",
@@ -141,6 +148,12 @@ export const TROPHY_META: Record<
   },
 };
 
+/**
+ * Lookup that tolerates unknown kinds (e.g. when the DB has a kind
+ * that this client doesn't ship yet, mid-deploy). Falls back to a
+ * bronze-tier `Award` icon with the raw kind as the label, so the UI
+ * still renders something instead of crashing.
+ */
 export function trophyMeta(kind: string) {
   return (
     TROPHY_META[kind as TrophyKind] ?? {
