@@ -106,7 +106,10 @@ export default async function TeamDetailPage({
                             <h3 className="text-lg font-semibold tracking-tight group-hover:underline">
                               {a.title}
                             </h3>
-                            <ExternalLink className="size-3.5 text-muted-foreground" />
+                            <ExternalLink
+                              className="size-3.5 text-muted-foreground"
+                              aria-hidden="true"
+                            />
                           </a>
                         </div>
                         <p className="ml-8 mt-1 text-sm text-muted-foreground">
@@ -153,7 +156,10 @@ export default async function TeamDetailPage({
                       <h3 className="font-semibold group-hover:underline">
                         {c.title}
                       </h3>
-                      <ExternalLink className="size-3.5 text-muted-foreground" />
+                      <ExternalLink
+                        className="size-3.5 text-muted-foreground"
+                        aria-hidden="true"
+                      />
                     </a>
                     <p className="mt-1 text-xs text-muted-foreground">
                       {[

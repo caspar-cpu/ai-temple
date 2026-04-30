@@ -149,7 +149,10 @@ export default async function CoursesPage({
                       <h3 className="font-semibold group-hover:underline">
                         {c.title}
                       </h3>
-                      <ExternalLink className="size-3.5 text-muted-foreground" />
+                      <ExternalLink
+                        className="size-3.5 text-muted-foreground"
+                        aria-hidden="true"
+                      />
                     </a>
                   </div>
                   <p className="mt-1 text-xs text-muted-foreground">

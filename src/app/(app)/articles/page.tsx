@@ -143,7 +143,10 @@ export default async function ArticlesPage({
                         <h3 className="text-lg font-semibold tracking-tight group-hover:underline">
                           {a.title}
                         </h3>
-                        <ExternalLink className="size-3.5 text-muted-foreground" />
+                        <ExternalLink
+                          className="size-3.5 text-muted-foreground"
+                          aria-hidden="true"
+                        />
                       </a>
                       <p className="mt-1 text-sm text-muted-foreground">
                         {[a.author, a.source].filter(Boolean).join(" · ")}

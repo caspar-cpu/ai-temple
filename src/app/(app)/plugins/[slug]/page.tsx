@@ -90,7 +90,7 @@ export default async function PluginDetailPage({
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-bead-blue"
             >
-              <ExternalLink className="size-3.5" />
+              <ExternalLink className="size-3.5" aria-hidden="true" />
               View on GitHub
             </a>
           ) : (

@@ -456,7 +456,10 @@ function LessonSection({
                         className="inline-flex items-center gap-1.5 font-medium hover:underline"
                       >
                         {step.title}
-                        <ExternalLink className="size-3.5 text-muted-foreground" />
+                        <ExternalLink
+                          className="size-3.5 text-muted-foreground"
+                          aria-hidden="true"
+                        />
                       </a>
                     ) : (
                       <span className="font-medium">{step.title}</span>

@@ -81,7 +81,7 @@ export default async function SkillDetailPage({
           rel="noreferrer"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline"
         >
-          <ExternalLink className="size-4" />
+          <ExternalLink className="size-4" aria-hidden="true" />
           Open on {new URL(skill.url).hostname.replace(/^www\./, "")}
         </a>
         <MarkDoneButton

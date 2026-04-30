@@ -94,7 +94,7 @@ export default async function AiToolDetailPage({
           rel="noreferrer"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline"
         >
-          <ExternalLink className="size-4" />
+          <ExternalLink className="size-4" aria-hidden="true" />
           Open on {hostname}
         </a>
         <MarkDoneButton
