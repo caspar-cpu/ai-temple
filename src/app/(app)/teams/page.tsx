@@ -18,6 +18,7 @@ export default function TeamsIndexPage() {
         </p>
       </header>
 
+      <h2 className="sr-only">All teams</h2>
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {TEAMS.map((t) => {
           const Icon = t.icon;

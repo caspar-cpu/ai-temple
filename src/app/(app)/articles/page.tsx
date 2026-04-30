@@ -126,10 +126,12 @@ export default async function ArticlesPage({
           ctaHref="/articles/submit"
         />
       ) : (
-        <Card className="p-0">
-          <ul className="divide-y divide-border">
-            {articles.map((a) => {
-              const read = readSet.has(a.id);
+        <>
+          <h2 className="sr-only">Articles</h2>
+          <Card className="p-0">
+            <ul className="divide-y divide-border">
+              {articles.map((a) => {
+                const read = readSet.has(a.id);
               return (
                 <li key={a.id} className="p-6">
                   <div className="flex items-start justify-between gap-4">
@@ -172,9 +174,10 @@ export default async function ArticlesPage({
                   </div>
                 </li>
               );
-            })}
-          </ul>
-        </Card>
+              })}
+            </ul>
+          </Card>
+        </>
       )}
     </div>
   );

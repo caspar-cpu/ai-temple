@@ -132,7 +132,9 @@ export default async function CoursesPage({
           ctaHref="/courses/submit"
         />
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <>
+          <h2 className="sr-only">Courses</h2>
+          <ul className="grid gap-4 sm:grid-cols-2">
           {courses.map((c) => {
             const done = completedSet.has(c.id);
             return (
@@ -189,7 +191,8 @@ export default async function CoursesPage({
               </li>
             );
           })}
-        </ul>
+          </ul>
+        </>
       )}
     </div>
   );

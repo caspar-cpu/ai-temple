@@ -163,7 +163,9 @@ export default async function PluginsPage({
       />
 
       {plugins.length > 0 ? (
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <>
+          <h2 className="sr-only">Plugins</h2>
+          <ul className="grid gap-4 sm:grid-cols-2">
           {plugins.map((p) => (
             <li key={p.id}>
               <Link
@@ -192,7 +194,8 @@ export default async function PluginsPage({
               </Link>
             </li>
           ))}
-        </ul>
+          </ul>
+        </>
       ) : (
         <EmptyContent
           title="No plugins yet"

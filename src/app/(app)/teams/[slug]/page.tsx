@@ -75,7 +75,10 @@ export default async function TeamDetailPage({
         </p>
       </header>
 
-      <section>
+      <section aria-labelledby="reading-heading">
+        <h2 id="reading-heading" className="sr-only">
+          Reading, in order
+        </h2>
         <SectionLabel className="mb-3">Reading, in order</SectionLabel>
         {articles.length === 0 ? (
           <EmptyContent
@@ -139,7 +142,10 @@ export default async function TeamDetailPage({
       </section>
 
       {courses.length > 0 && (
-        <section>
+        <section aria-labelledby="courses-heading">
+          <h2 id="courses-heading" className="sr-only">
+            Courses for this team
+          </h2>
           <SectionLabel className="mb-3">Courses for this team</SectionLabel>
           <ul className="grid gap-4 sm:grid-cols-2">
             {courses.map((c) => {

@@ -115,7 +115,9 @@ export default async function SkillsPage({
       />
 
       {skills.length > 0 ? (
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <>
+          <h2 className="sr-only">Skills</h2>
+          <ul className="grid gap-4 sm:grid-cols-2">
           {skills.map((s) => (
             <li key={s.id}>
               <Link
@@ -149,7 +151,8 @@ export default async function SkillsPage({
               </Link>
             </li>
           ))}
-        </ul>
+          </ul>
+        </>
       ) : (
         <EmptyContent
           title="No skills yet"
