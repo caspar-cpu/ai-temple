@@ -104,11 +104,24 @@ export default async function AiToolDetailPage({
         />
       </Card>
 
-      <section>
+      <section aria-labelledby="about-tool-heading">
+        <h2 id="about-tool-heading" className="sr-only">
+          About this tool
+        </h2>
         <SectionLabel className="mb-3">About this tool</SectionLabel>
         <Card className="px-8 py-6">
           <div className="prose-article">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h1: "h3",
+                h2: "h3",
+                h3: "h4",
+                h4: "h5",
+                h5: "h6",
+                h6: "h6",
+              }}
+            >
               {tool.body_md}
             </ReactMarkdown>
           </div>
@@ -116,7 +129,10 @@ export default async function AiToolDetailPage({
       </section>
 
       {uses.length > 0 && (
-        <section>
+        <section aria-labelledby="uses-heading">
+          <h2 id="uses-heading" className="sr-only">
+            Who has used this tool
+          </h2>
           <SectionLabel className="mb-3">Who&apos;s used this</SectionLabel>
           <ul className="flex flex-wrap gap-2">
             {uses.map((u, i) =>

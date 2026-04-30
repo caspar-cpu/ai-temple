@@ -107,11 +107,24 @@ export default async function PluginDetailPage({
       </Card>
 
       {markdown && plugin.github_url && (
-        <section>
+        <section aria-labelledby="skill-md-heading">
+          <h2 id="skill-md-heading" className="sr-only">
+            SKILL.md content
+          </h2>
           <SectionLabel className="mb-3">SKILL.md (live from GitHub)</SectionLabel>
           <Card className="px-8 py-6">
             <div className="prose-article">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: "h3",
+                  h2: "h3",
+                  h3: "h4",
+                  h4: "h5",
+                  h5: "h6",
+                  h6: "h6",
+                }}
+              >
                 {markdown}
               </ReactMarkdown>
             </div>
