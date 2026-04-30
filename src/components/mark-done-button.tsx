@@ -59,6 +59,13 @@ const CONFIGS: Record<QuizContentType, Config> = {
   },
 };
 
+/**
+ * The "Mark as done / I've used this" affordance. Owns the quiz-modal
+ * lifecycle: opens on click, awards a trophy (via QuizModal's server
+ * action) when the user passes the quiz, and replaces the button with
+ * a tier-coloured "done" pill that runs the just-mined animation. The
+ * `cta`/`done` copy and `trophyKind` come from a per-content-type config.
+ */
 export function MarkDoneButton({
   contentType,
   contentKey,
@@ -91,11 +98,7 @@ export function MarkDoneButton({
           justDone && "animate-just-mined",
         )}
       >
-        <TrophyIcon
-          name={meta.icon}
-          tier={meta.tier}
-          size={btnSize === "md" ? "sm" : "sm"}
-        />
+        <TrophyIcon name={meta.icon} tier={meta.tier} size="sm" />
         {cfg.done}
       </span>
     );

@@ -14,6 +14,12 @@ type Row = {
   total_points: number | null;
 };
 
+/**
+ * Right-edge collapsible leaderboard rail (md+ only). Filters out rows
+ * with null id/username/full_name, highlights the current user's row,
+ * and links each entry to /u/[username]. Toggle persists only for the
+ * page's lifetime (no localStorage) — `open` resets on navigation.
+ */
 export function LeaderboardSidebar({
   rows,
   currentUserId,
