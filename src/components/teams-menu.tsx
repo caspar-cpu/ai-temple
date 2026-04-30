@@ -66,6 +66,8 @@ export function TeamsMenu() {
         ref={btnRef}
         type="button"
         onClick={() => setOpen(!open)}
+        aria-haspopup="menu"
+        aria-expanded={open}
         className={cn(
           "inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full border px-3 text-xs font-medium transition",
           open
@@ -84,6 +86,8 @@ export function TeamsMenu() {
         createPortal(
           <div
             ref={menuRef}
+            role="menu"
+            aria-label="Team specific"
             className="w-72 rounded-2xl border border-border bg-card shadow-2xl"
             style={{ position: "fixed", top: pos.top, left: pos.left, zIndex: 50 }}
           >
