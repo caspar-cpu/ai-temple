@@ -495,7 +495,7 @@ function GlossaryItem({
   return (
     <Card className="h-full p-5">
       <div className="flex items-center gap-2">
-        <Icon className="size-4 text-muted-foreground" />
+        <Icon className="size-4 text-muted-foreground" aria-hidden="true" />
         <h3 className="font-semibold">{term}</h3>
       </div>
       <p className="mt-2 text-sm text-muted-foreground">{def}</p>

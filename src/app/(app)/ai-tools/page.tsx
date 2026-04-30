@@ -151,7 +151,7 @@ export default async function AiToolsPage() {
                           <h3 className="text-base font-semibold">{t.title}</h3>
                           {used && (
                             <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
-                              <Check className="size-3" />
+                              <Check className="size-3" aria-hidden="true" />
                               Used
                             </span>
                           )}

@@ -75,9 +75,10 @@ export function TeamsMenu() {
             : "border-border bg-background text-foreground/80 hover:border-foreground/40 hover:text-foreground",
         )}
       >
-        <Menu className="size-3.5" />
+        <Menu className="size-3.5" aria-hidden="true" />
         Team specific
         <ChevronDown
+          aria-hidden="true"
           className={cn("size-3.5 transition-transform", open && "rotate-180")}
         />
       </button>
@@ -109,7 +110,7 @@ export function TeamsMenu() {
                       onClick={() => setOpen(false)}
                       className="flex items-center gap-3 px-4 py-2 text-sm hover:bg-muted/60"
                     >
-                      <Icon className="size-4 text-muted-foreground" />
+                      <Icon className="size-4 text-muted-foreground" aria-hidden="true" />
                       <span>{t.name}</span>
                     </Link>
                   </li>

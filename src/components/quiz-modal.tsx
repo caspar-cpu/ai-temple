@@ -151,7 +151,7 @@ export function QuizModal({
           className="absolute right-4 top-4 text-muted-foreground hover:text-foreground"
           aria-label="Close"
         >
-          <X className="size-5" />
+          <X className="size-5" aria-hidden="true" />
         </button>
 
         {view.kind === "loading" && (
