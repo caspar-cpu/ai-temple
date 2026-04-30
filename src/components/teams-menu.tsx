@@ -7,6 +7,14 @@ import { ChevronDown, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TEAMS } from "@/lib/teams";
 
+/**
+ * "Team specific" dropdown in the top nav. Renders the menu in a body
+ * portal so it escapes overflow:hidden ancestors, anchored to the
+ * trigger via a fixed-position style computed from getBoundingClientRect.
+ * Closes on outside click, Escape, or page scroll. The `mounted` flag
+ * gates the portal until after first client render so SSR doesn't
+ * touch document.body.
+ */
 export function TeamsMenu() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
