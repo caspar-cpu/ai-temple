@@ -135,6 +135,14 @@ async function performMark(
   return { ok: true };
 }
 
+/**
+ * Server action — fetch the quiz question for a piece of content, in
+ * parallel with the already-done check and the lockout check. Returns
+ * `already_done` if the user already marked it, `locked` during the
+ * 24h cooldown after a wrong answer, `no_question` if the content has
+ * no quiz row (caller should fall back to `markWithoutQuiz`), or
+ * `ready` with question + shuffled options.
+ */
 export async function loadQuestion(
   contentType: QuizContentType,
   contentKey: string,
@@ -168,6 +176,13 @@ export async function loadQuestion(
   };
 }
 
+/**
+ * Server action — score a quiz answer and (if correct) mark the
+ * content as done. Records every attempt to `quiz_attempts` so the
+ * 24h lockout can be enforced on the next `loadQuestion`. Wrong
+ * answers are kept distinct from "locked" so the UI can render the
+ * specific cooldown countdown.
+ */
 export async function submitQuiz(
   contentType: QuizContentType,
   contentKey: string,
@@ -229,6 +244,12 @@ export async function submitQuiz(
   return { status: "wrong", minutesUntil: 24 * 60 };
 }
 
+/**
+ * Server action — fallback for content with no quiz row. Awards the
+ * trophy unconditionally (idempotent: a unique constraint on the
+ * mark table prevents double-counting). Use only when `loadQuestion`
+ * returned `no_question`.
+ */
 export async function markWithoutQuiz(
   contentType: QuizContentType,
   contentKey: string,
