@@ -194,11 +194,17 @@ export function QuizModal({
             <h3 className="mt-2 text-lg font-semibold tracking-tight">
               {view.question}
             </h3>
-            <ol className="mt-5 space-y-2">
+            <ol
+              className="mt-5 space-y-2"
+              role="radiogroup"
+              aria-label="Answer options"
+            >
               {view.options.map((opt, i) => (
                 <li key={i}>
                   <button
                     type="button"
+                    role="radio"
+                    aria-checked={selected === i}
                     onClick={() => setSelected(i)}
                     className={cn(
                       "flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition",
