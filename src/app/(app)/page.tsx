@@ -180,7 +180,10 @@ export default async function HomePage() {
         </Card>
       </section>
 
-      <section>
+      <section aria-labelledby="browse-heading">
+        <h2 id="browse-heading" className="sr-only">
+          Browse the library
+        </h2>
         <ul className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {SECTIONS.map((s) => {
             const Icon = s.icon;
