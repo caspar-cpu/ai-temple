@@ -65,7 +65,10 @@ export function Nav({ user }: { user: Profile | null }) {
       </header>
 
       {user && (
-        <div className="flex h-12 items-center gap-2 overflow-x-auto border-b border-border/60 bg-muted/30 px-6 md:px-8">
+        <nav
+          aria-label="Sections"
+          className="flex h-12 items-center gap-2 overflow-x-auto border-b border-border/60 bg-muted/30 px-6 md:px-8"
+        >
           <Button
             href="/start-here"
             variant="peacock"
@@ -88,7 +91,7 @@ export function Nav({ user }: { user: Profile | null }) {
           ))}
           <TeamsMenu />
           <span className="flex-1" />
-        </div>
+        </nav>
       )}
     </>
   );
