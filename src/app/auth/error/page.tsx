@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card";
 const REASONS: Record<string, string> = {
   "missing-code": "Something went wrong with the login link. Please try again.",
   exchange: "Your login link has expired. Please request a new one.",
-  callback: "Authentication callback failed. Please try again.",
 };
 
 export default async function AuthErrorPage({
