@@ -27,6 +27,11 @@ function firstIssueMessage(
   return field ? `${field}: ${issue.message}` : issue.message;
 }
 
+/**
+ * Insert an article row, optionally with a quick-check quiz. Same
+ * shape as `submitPlugin` (Zod → unique slug → insert → optional quiz
+ * row → redirect to /articles/[slug]).
+ */
 export async function submitArticle(formData: FormData) {
   const result = Schema.safeParse({
     title: formData.get("title"),

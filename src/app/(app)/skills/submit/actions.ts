@@ -29,6 +29,12 @@ function firstIssueMessage(
   return field ? `${field}: ${issue.message}` : issue.message;
 }
 
+/**
+ * Insert a skill row, optionally with a quick-check quiz. Same shape
+ * as `submitPlugin` (Zod → unique slug → insert → optional quiz row →
+ * redirect to /skills/[slug]). Validation errors come back via
+ * `?error=` on the submit page.
+ */
 export async function submitSkill(formData: FormData) {
   const result = Schema.safeParse({
     title: formData.get("title"),

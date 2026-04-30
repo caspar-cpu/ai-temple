@@ -30,6 +30,14 @@ function firstIssueMessage(
   return field ? `${field}: ${issue.message}` : issue.message;
 }
 
+/**
+ * Insert a plugin row, optionally with a quick-check quiz. Steps:
+ * Zod-validate → resolve a unique slug (suffix `-2`, `-3`, … on
+ * collision) → insert plugin → insert content_questions row if quiz
+ * fields were filled → redirect to the new detail page. On any
+ * validation/insert failure, redirects back to the submit form with
+ * `?error=` set so the page can render the message.
+ */
 export async function submitPlugin(formData: FormData) {
   const result = Schema.safeParse({
     name: formData.get("name"),
