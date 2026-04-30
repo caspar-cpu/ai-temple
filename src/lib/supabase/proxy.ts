@@ -17,6 +17,13 @@ const PUBLIC_PATHS = [
   "/sitemap.xml",
 ];
 
+/**
+ * Edge-middleware session sync. Reads cookies, refreshes the Supabase
+ * session if needed, mirrors any new cookies onto the response, and
+ * redirects unauthenticated visits to /login (preserving the intended
+ * path in `?next=`). PUBLIC_PATHS bypass the gate. Called from
+ * `proxy.ts` (the project's renamed `middleware.ts`).
+ */
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
 
