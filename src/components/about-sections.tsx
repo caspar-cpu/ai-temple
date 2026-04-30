@@ -38,6 +38,13 @@ const POINTS_TABLE: { activity: string; points: number }[] = [
   },
 ];
 
+/**
+ * "How it works" marketing block on the /about page. Five gamified
+ * content types, each as a card with its primary point reward. Add a
+ * new content type → add a card here AND extend `POINTS`/`TROPHY_KINDS`
+ * in `lib/points.ts`. Heading text references the card count, so
+ * update both when adding a sixth.
+ */
 export function HowItWorksSection() {
   return (
     <section id="how-it-works" className="scroll-mt-20">
@@ -86,6 +93,11 @@ export function HowItWorksSection() {
   );
 }
 
+/**
+ * Reads `POINTS_TABLE` (declared at top of this file) into a divided
+ * list inside a Card. Edit the table to add rows — values come from
+ * `POINTS` so changing a reward in lib/points.ts is reflected here.
+ */
 export function PointsTableSection() {
   return (
     <section>
@@ -117,6 +129,11 @@ export function PointsTableSection() {
   );
 }
 
+/**
+ * Catalog of every nugget/gem grouped by tier (bronze → silver →
+ * gold → uncut gem). Pulls from `TROPHY_KINDS` so any kind added in
+ * lib/points.ts auto-appears in the right tier section.
+ */
 export function TrophyGallerySection() {
   return (
     <section>
@@ -175,6 +192,11 @@ export function TrophyGallerySection() {
   );
 }
 
+/**
+ * Closing CTA block listing the four contribution types and their
+ * point rewards. Numbers come from `POINTS` so they stay in sync
+ * if the values change in lib/points.ts.
+ */
 export function ContributeSection() {
   return (
     <section>
