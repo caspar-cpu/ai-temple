@@ -1,4 +1,4 @@
-import { BookOpen, Lightbulb, Zap } from "lucide-react";
+import { BookOpen, Compass, GraduationCap, Lightbulb, Wrench } from "lucide-react";
 import { Card, SectionLabel, BigNumber } from "@/components/ui/card";
 import { TrophyIcon } from "@/components/trophy-icon";
 import { cardHoverLift } from "@/lib/style";
@@ -20,6 +20,7 @@ const TIER_GROUPS: { tier: TrophyTier; label: string }[] = [
 const POINTS_TABLE: { activity: string; points: number }[] = [
   { activity: "Tick an onboarding step", points: POINTS.journey_step },
   { activity: "Read an article", points: POINTS.article_read },
+  { activity: "Apply an AI tool", points: POINTS.ai_tool_used },
   { activity: "Apply a skill", points: POINTS.skill_used },
   { activity: "Apply a plugin", points: POINTS.plugin_used },
   { activity: "Add an article", points: POINTS.article_contributed },
@@ -42,11 +43,11 @@ export function HowItWorksSection() {
     <section id="how-it-works" className="scroll-mt-20">
       <SectionLabel className="text-center">How it works</SectionLabel>
       <h2 className="mt-3 text-center text-3xl font-semibold tracking-tight">
-        Three sections, all gamified
+        Five sections, all gamified
       </h2>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
         <HowCard
-          icon={<Zap className="size-5 text-primary" />}
+          icon={<Wrench className="size-5 text-primary" />}
           title="Plugins"
           body="Claude skills hosted on GitHub. Click into a plugin to see the install command, an example of how to invoke it, and the live SKILL.md. Tick 'I've used this' to log the win."
           points={POINTS.plugin_used}
@@ -54,8 +55,22 @@ export function HowItWorksSection() {
         />
         <HowCard
           icon={<Lightbulb className="size-5 text-primary" />}
+          title="Skills"
+          body="Marketplace skills that bolt onto Claude. Each one ships a single capability — PDF, XLSX, slide-creator. Tick 'I've used this' when you put it to work."
+          points={POINTS.skill_used}
+          pointsLabel="per skill applied"
+        />
+        <HowCard
+          icon={<Compass className="size-5 text-primary" />}
+          title="AI Tools"
+          body="The 2026 field guide of AI tools, ordered by leverage. From flagship models down to niche utilities. Log the ones you've actually used."
+          points={POINTS.ai_tool_used}
+          pointsLabel="per tool applied"
+        />
+        <HowCard
+          icon={<GraduationCap className="size-5 text-primary" />}
           title="Courses"
-          body="AI courses from Anthropic and others. Completing one earns the biggest single badge on the board. The most efficient way to climb the leaderboard."
+          body="AI courses from Anthropic and others. Completing one earns the biggest single nugget on the board. The most efficient way to climb the leaderboard."
           points={POINTS.course_completed}
           pointsLabel="per course completed"
         />
