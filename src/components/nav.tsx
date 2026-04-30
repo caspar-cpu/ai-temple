@@ -18,6 +18,13 @@ const LINKS = [
   { href: "/how-it-works", label: "How it works" },
 ];
 
+/**
+ * Two-tier sticky header. Top row: the SunMark logo + identity strip
+ * (display name link, Settings, Sign out). Second row (signed-in only):
+ * a horizontal scroll rail of section links with the bead-blue
+ * "Start here" pill leading + the TeamsMenu trailing. Hidden entirely
+ * for signed-out visitors so /login and /about stay clean.
+ */
 export function Nav({ user }: { user: Profile | null }) {
   return (
     <>
