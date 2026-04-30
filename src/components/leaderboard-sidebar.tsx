@@ -49,6 +49,7 @@ export function LeaderboardSidebar({
         className="flex h-10 w-full items-center justify-center border-b border-border text-muted-foreground hover:text-bead-blue"
       >
         <ChevronRight
+          aria-hidden="true"
           className={cn(
             "size-4 transition-transform",
             open ? "rotate-180" : "rotate-0",
