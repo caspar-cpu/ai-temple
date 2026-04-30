@@ -76,7 +76,14 @@ export function LeaderboardSidebar({
                       )}
                     >
                       <span className="flex min-w-0 items-center gap-2">
-                        <span className="w-4 shrink-0 text-right text-xs text-muted-foreground">
+                        <span
+                          className={cn(
+                            "w-4 shrink-0 text-right text-xs tabular-nums",
+                            i === 0
+                              ? "font-semibold text-bead-red"
+                              : "text-muted-foreground",
+                          )}
+                        >
                           {i + 1}
                         </span>
                         <span className="truncate">{row.full_name}</span>

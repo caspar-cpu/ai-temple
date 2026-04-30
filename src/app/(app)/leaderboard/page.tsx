@@ -147,7 +147,10 @@ export default async function LeaderboardPage({
               <SunMark className="size-8 animate-sun-shine text-primary" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
+              <p className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
+                <span className="rounded-full bg-bead-red px-1.5 py-0.5 text-[10px] font-semibold tracking-wider text-pearl">
+                  #1
+                </span>
                 {winnerHeading}
               </p>
               <Link
