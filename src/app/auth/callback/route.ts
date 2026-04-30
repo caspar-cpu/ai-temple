@@ -1,6 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
+/**
+ * Magic-link callback. Supabase sends users here with `?code=...` after
+ * they click the email link. Exchanges the code for a session, then
+ * redirects to the original `?next=` path (defaulting to /). Errors
+ * funnel to /auth/error with a `reason` query param.
+ */
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
