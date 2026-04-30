@@ -1,10 +1,20 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+/**
+ * Tailwind class composer: clsx for conditionals + tailwind-merge to
+ * dedupe conflicting utilities (e.g. `p-4 p-6` → `p-6`). Use this
+ * instead of template strings whenever variant logic is involved.
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/**
+ * URL-slug from a free-form string. Lowercases, strips non-word
+ * chars, collapses whitespace and double hyphens. Use for content
+ * slugs (plugin/skill/article/course names).
+ */
 export function slugify(input: string) {
   return input
     .toLowerCase()
@@ -14,6 +24,11 @@ export function slugify(input: string) {
     .replace(/-+/g, "-");
 }
 
+/**
+ * Read a count out of Supabase's nested `{count}` shape: PostgREST
+ * returns `[{count: N}]` for `.select("col(count)")` joins. Returns
+ * 0 when the join is empty or shape is unexpected.
+ */
 export function extractCount(nested: unknown): number {
   const arr = nested as { count: number }[] | undefined;
   return arr?.[0]?.count ?? 0;
@@ -27,6 +42,10 @@ export function isJustJoined(createdAt: string, withinMs = 5 * 60_000) {
   return Date.now() - new Date(createdAt).getTime() < withinMs;
 }
 
+/**
+ * Friendly greeting bucketed by hour of `now` (server's clock). Used
+ * on the home dashboard above the user's first name.
+ */
 export function timeOfDayGreeting(now: Date = new Date()): string {
   const hour = now.getHours();
   if (hour < 5) return "Good night";
@@ -48,6 +67,11 @@ export function rankOf(
   return idx >= 0 ? idx + 1 : null;
 }
 
+/**
+ * Human-readable "X ago" string. Tiers: just now (<1m), Xm ago (<1h),
+ * Xh ago (<24h), Xd ago (<30d), then a localized full date. Used on
+ * trophy timestamps and contributor activity.
+ */
 export function formatRelative(date: string | Date) {
   const d = typeof date === "string" ? new Date(date) : date;
   const diff = Date.now() - d.getTime();
