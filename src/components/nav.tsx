@@ -28,7 +28,10 @@ const LINKS = [
 export function Nav({ user }: { user: Profile | null }) {
   return (
     <>
-      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border/60 bg-background/95 px-6 backdrop-blur md:px-8">
+      <header
+        role="banner"
+        className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border/60 bg-background/95 px-6 backdrop-blur md:px-8"
+      >
         <Link
           href="/"
           aria-label="The AI Temple home"
