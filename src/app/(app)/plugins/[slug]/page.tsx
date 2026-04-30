@@ -133,7 +133,10 @@ export default async function PluginDetailPage({
       )}
 
       {uses.length > 0 && (
-        <section>
+        <section aria-labelledby="plugin-uses-heading">
+          <h2 id="plugin-uses-heading" className="sr-only">
+            Who has used this plugin
+          </h2>
           <SectionLabel className="mb-3">Who&apos;s used this</SectionLabel>
           <ul className="flex flex-wrap gap-2">
             {uses.map((u, i) =>
