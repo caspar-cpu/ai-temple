@@ -1,6 +1,12 @@
 import { Field } from "@/components/ui/field";
 import { SectionLabel } from "@/components/ui/card";
 
+/**
+ * Optional 4-option quiz block embedded in submit forms (plugins,
+ * skills, courses, articles). All fields blank → no quiz is created
+ * and `markWithoutQuiz` will award the trophy unconditionally.
+ * Pair with `parseQuizFields` on the server action side.
+ */
 export function QuizFields() {
   return (
     <div className="space-y-4 rounded-2xl border border-dashed border-border bg-muted/30 p-5">
@@ -43,6 +49,12 @@ export function QuizFields() {
   );
 }
 
+/**
+ * Parses the QuizFields formdata into a `{question, options, correctIndex}`
+ * shape, or returns null if any field is blank or `correct` is out of
+ * range. Use in submit-form server actions to decide whether to insert
+ * a `quizzes` row.
+ */
 export function parseQuizFields(formData: FormData) {
   const question = (formData.get("quiz_question") as string | null)?.trim();
   const a = (formData.get("quiz_option_a") as string | null)?.trim();
