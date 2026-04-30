@@ -24,8 +24,8 @@ export function TeamsMenu() {
 
   useEffect(() => {
     // Mount flag: portal target (document.body) only exists on client.
-    // The setState-in-effect lint flags this, but it's the standard
-    // hydration-safe portal pattern.
+    // Standard hydration-safe portal pattern.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

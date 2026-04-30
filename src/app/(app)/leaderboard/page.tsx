@@ -106,6 +106,10 @@ export default async function LeaderboardPage({
     (t) => t.profile && t.profile.username,
   );
   const myRank = rankOf(rows, user.id);
+  // Server component, fresh on each request — Date.now is the request
+  // timestamp, not a render-time impurity.
+  // eslint-disable-next-line react-hooks/purity
+  const newWindowMs = Date.now() - 5 * 60_000;
   const winner = rows[0];
   const rest = rows.slice(1);
 
@@ -261,8 +265,7 @@ export default async function LeaderboardPage({
                         earned{" "}
                         <span className="text-foreground/80">{meta.label}</span>
                       </span>
-                      {Date.now() - new Date(t.earned_at).getTime() <
-                        5 * 60_000 && (
+                      {new Date(t.earned_at).getTime() > newWindowMs && (
                         <span className="rounded-full bg-bead-red/10 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-bead-red">
                           New
                         </span>

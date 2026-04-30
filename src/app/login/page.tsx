@@ -21,10 +21,10 @@ export default function LoginPage() {
 
   useEffect(() => {
     // Hydration-safe localStorage prefill: SSR renders empty inputs, client
-    // populates from localStorage after mount. The set-state-in-effect lint
-    // flags this as a perf nag, but it's the correct hydration pattern.
+    // populates from localStorage after mount. The standard hydration pattern.
     const savedEmail = localStorage.getItem(EMAIL_KEY);
     const savedUsername = localStorage.getItem(USERNAME_KEY);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (savedEmail) setEmail(savedEmail);
     if (savedUsername) setUsername(savedUsername);
   }, []);
