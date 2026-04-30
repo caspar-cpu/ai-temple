@@ -29,7 +29,7 @@ export default function TeamsIndexPage() {
               >
                 <Card className={cn("h-full", cardHoverLift)}>
                   <div className="flex size-10 items-center justify-center rounded-full bg-primary/10">
-                    <Icon className="size-5 text-primary" />
+                    <Icon className="size-5 text-primary" aria-hidden="true" />
                   </div>
                   <h3 className="mt-4 font-semibold">{t.name}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">

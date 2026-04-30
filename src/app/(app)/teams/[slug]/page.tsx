@@ -61,7 +61,7 @@ export default async function TeamDetailPage({
         </Link>
         <div className="mt-4 flex items-center gap-4">
           <span className="inline-flex size-12 items-center justify-center rounded-full bg-primary/10">
-            <Icon className="size-6 text-primary" />
+            <Icon className="size-6 text-primary" aria-hidden="true" />
           </span>
           <div>
             <SectionLabel>Team specific</SectionLabel>

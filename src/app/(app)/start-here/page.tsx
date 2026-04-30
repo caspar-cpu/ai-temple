@@ -380,7 +380,7 @@ export default async function StartHerePage() {
         ) : (
           <Card className="text-center">
             <div className="mx-auto inline-flex size-12 items-center justify-center rounded-full bg-primary/10">
-              <Rocket className="size-5 text-primary" />
+              <Rocket className="size-5 text-primary" aria-hidden="true" />
             </div>
             <h2 className="mt-4 text-xl font-semibold tracking-tight">
               Finish the journey to unlock Completed Beginner Reading
@@ -416,7 +416,7 @@ function LessonSection({
             allDone ? "bg-primary/10 text-primary" : "bg-muted",
           )}
         >
-          <Icon className="size-5" />
+          <Icon className="size-5" aria-hidden="true" />
         </span>
         <div className="flex-1">
           <h2 className="text-xl font-semibold tracking-tight">
