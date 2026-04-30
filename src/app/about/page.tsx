@@ -18,8 +18,15 @@ export default async function AboutPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border/60 bg-background/95 px-6 backdrop-blur md:px-8">
-        <Link href="/about" className="flex items-center gap-3">
+      <header
+        role="banner"
+        className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border/60 bg-background/95 px-6 backdrop-blur md:px-8"
+      >
+        <Link
+          href="/about"
+          aria-label="The AI Temple home"
+          className="flex items-center gap-3"
+        >
           <SunMark className="size-8 text-primary" />
           <span className="font-display text-base tracking-wide">
             The AI Temple
