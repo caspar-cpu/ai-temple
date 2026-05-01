@@ -14,6 +14,7 @@ const LINKS = [
   { href: "/ai-tools", label: "AI Tools" },
   { href: "/courses", label: "Courses" },
   { href: "/articles", label: "Articles" },
+  { href: "/pods-videos", label: "Pods & Videos" },
   { href: "/leaderboard", label: "Leaderboard" },
   { href: "/how-it-works", label: "How it works" },
 ];
