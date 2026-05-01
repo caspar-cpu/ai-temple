@@ -1,8 +1,11 @@
 import {
   BookOpen,
   ExternalLink,
+  FolderOpen,
   GraduationCap,
   Headphones,
+  MessageCircle,
+  Puzzle,
   Rocket,
   Sparkles,
   Terminal,
@@ -36,46 +39,153 @@ type Lesson = {
 
 const LESSONS: Lesson[] = [
   {
-    id: "week-1",
-    title: "Lesson 1. Week 1 essentials",
+    id: "level-1-chat",
+    title: "Lesson 1. Level 1 — Claude Chat",
     description:
-      "Five installs that take about an hour end to end. Do these first. Everything that follows gets easier.",
-    icon: Wrench,
+      "Five moves to get the basics right. Most people stop here and miss 90% of what Claude can do — don't be most people.",
+    icon: MessageCircle,
     steps: [
       {
         key: "install-claude-desktop",
-        title: "Install Claude Desktop",
-        body: "Go to claude.ai/download, drag it to Applications, sign in with your work account.",
-        url: "https://claude.ai/download",
+        title: "Install the Claude app",
+        body: "Go to claude.com/download, drag it to Applications, sign in with your work account.",
+        url: "https://claude.com/download",
+      },
+      {
+        key: "subscribe-claude-pro",
+        title: "Pay the $20",
+        body: "Get Pro. Without it you'll bump into limits before lunch.",
+      },
+      {
+        key: "select-opus-extended-thinking",
+        title: "Pick Opus 4.6 + Extended Thinking",
+        body: "In the model picker at the top of the chat, choose Opus 4.6 with Extended Thinking on. The smart, slow setting. What you want for real work.",
+      },
+      {
+        key: "connect-connectors",
+        title: "Connect Slack, Drive and Notion",
+        body: "Settings, Connectors. Hook up the apps you live in. Once they're on, Claude can read them and act on them — no more copy-paste.",
+      },
+      {
+        key: "askuserquestion-prompt",
+        title: "Stop writing long prompts",
+        body: "Use this template instead: 'I want to [TASK] for [SUCCESS CRITERIA]. Use AskUserQuestion before you start.' Claude interviews you instead of guessing. One line replaces most of the prompting you've ever done.",
+        url: "https://how-to-claude.ai",
+      },
+    ],
+  },
+  {
+    id: "level-2-cowork",
+    title: "Lesson 2. Level 2 — Claude Cowork",
+    description:
+      "You're about to kill prompting. From here on, your prompt is two lines plus a folder.",
+    icon: FolderOpen,
+    steps: [
+      {
+        key: "cowork-folder-structure",
+        title: "Set up your Cowork folder",
+        body: "Open Cowork. Create a folder called Claude-Cowork. Inside it, four subfolders: about-me, templates, projects and outputs.",
+      },
+      {
+        key: "create-about-me",
+        title: "Write your about-me.md",
+        body: "Inside about-me, create about-me.md. A short file: what you do, how you do it, what good looks like to you.",
+      },
+      {
+        key: "create-anti-ai-style",
+        title: "Write your anti-ai-style.md",
+        body: "Same folder. anti-ai-style.md. Words you'd never say. Phrases that sound like a chatbot. Claude reads this and avoids them.",
+      },
+      {
+        key: "set-global-instructions",
+        title: "Lock in Global Instructions",
+        body: "Settings, Cowork, Edit Instructions. Paste: 'Always read my files first, never edit my originals, deliver everything to CLAUDE OUTPUTS.' That's it. From now on, your prompt is two lines plus your folder.",
+      },
+    ],
+  },
+  {
+    id: "level-3-skills",
+    title: "Lesson 3. Level 3 — Skills and plugins",
+    description:
+      "Skills handle the process. Your about-me handles the tone. Two layers, working at the same time.",
+    icon: Puzzle,
+    steps: [
+      {
+        key: "skill-creator-build",
+        title: "Build your first skill with skill-creator",
+        body: "In Cowork, type: 'Use the skill-creator to help me build a skill for [your most repeated task].' Claude interviews you. Be specific in your answers.",
+      },
+      {
+        key: "test-skill-description",
+        title: "Test the description",
+        body: "Claude generates a SKILL.md. Ask back: 'When would you use this skill?' If the answer is vague, the description is vague. Tighten it until Claude knows exactly when to fire.",
+      },
+      {
+        key: "upload-skill",
+        title: "Upload your skill",
+        body: "Settings, Capabilities, Skills, Upload. Now it fires automatically. No slash command, no reminder needed.",
+      },
+      {
+        key: "install-starter-skills",
+        title: "Browse and install plugins",
+        body: "Cowork, Customize, Browse plugins. Install what looks useful. They pay for themselves the first time you use them.",
+      },
+    ],
+  },
+  {
+    id: "level-4-code",
+    title: "Lesson 4. Level 4 — Code and Computer",
+    description:
+      "This is where you stop working inside Claude. Claude starts working on your computer.",
+    icon: Terminal,
+    steps: [
+      {
+        key: "claude-code-tab-github",
+        title: "Open the Code tab and connect GitHub",
+        body: "Click the Code tab in Claude Desktop. Connect GitHub through Settings, Connectors. A free GitHub account is fine if you don't have one.",
+      },
+      {
+        key: "claude-build-repo",
+        title: "Have Claude build your first project",
+        body: "Prompt: 'Create a GitHub repo named [project]. Code everything. Don't ask for permissions.' Watch it work.",
       },
       {
         key: "install-claude-code",
         title: "Install Claude Code in your terminal",
-        body: "Install Node.js LTS from nodejs.org, then run 'npm install -g @anthropic-ai/claude-code' and 'claude' to authenticate. Every serious workflow eventually touches the terminal.",
-        url: "https://nodejs.org",
+        body: "Install Node.js LTS from nodejs.org, run 'npm install -g @anthropic-ai/claude-code', then 'claude' to authenticate. Every serious workflow eventually touches the terminal.",
+        url: "https://claudecode.free",
       },
       {
-        key: "install-wispr-flow",
-        title: "Set up Wispr Flow",
-        body: "Go to wisprflow.ai, install, hold Fn and talk. You'll slow yourself down every day you don't have this.",
-        url: "https://wisprflow.ai",
+        key: "vscode-claude-extension",
+        title: "Install VS Code + the Claude extension",
+        body: "Download VS Code, install the Claude extension from the marketplace. Turn on Skip Permissions in settings to go 100x faster on personal projects.",
+        url: "https://code.visualstudio.com/download",
       },
       {
-        key: "install-claude-chrome",
-        title: "Install Claude for Chrome",
-        body: "Search 'Claude for Chrome' in the Chrome Web Store, install, pin to toolbar. Lets Claude see what's on any tab.",
-        url: "https://chromewebstore.google.com/search/claude",
+        key: "create-claude-md",
+        title: "Generate a CLAUDE.md",
+        body: "After your session, paste: 'Create a CLAUDE.md file with everything you learned about this project.' Claude remembers your fonts, colours and structure forever.",
       },
       {
-        key: "install-starter-skills",
-        title: "Install two starter skills",
-        body: "Open Claude Desktop, Settings, Skills. Enable frontend-design and skill-creator. They pay for themselves the first time you use them.",
+        key: "enable-computer-browser-use",
+        title: "Turn on Browser + Computer use",
+        body: "Settings, Desktop app, enable Browser use and Computer use. Claude can now click buttons, fill forms and drive your machine like a person.",
+      },
+      {
+        key: "connect-dispatch",
+        title: "Connect Dispatch",
+        body: "Connect your phone with Dispatch. Text Claude a task. It runs in the background while you live your life.",
+      },
+      {
+        key: "schedule-recurring-task",
+        title: "Schedule a recurring task",
+        body: "Left sidebar, Scheduled, write the prompt, pick a frequency. Claude fires it on its own.",
       },
     ],
   },
   {
     id: "grounding",
-    title: "Lesson 2. A little grounding",
+    title: "Lesson 5. A little grounding",
     description:
       "Pick at least two so later sections stop feeling like a foreign language.",
     icon: BookOpen,
@@ -101,7 +211,7 @@ const LESSONS: Lesson[] = [
   },
   {
     id: "primer",
-    title: "Lesson 3. The plain-language primer",
+    title: "Lesson 6. The plain-language primer",
     description: "Five short reads, in this order. Each builds on the last.",
     icon: BookOpen,
     steps: [
@@ -139,7 +249,7 @@ const LESSONS: Lesson[] = [
   },
   {
     id: "videos",
-    title: "Lesson 4. Watch two videos",
+    title: "Lesson 7. Watch two videos",
     description: "Short, high-signal. Watch between the reading.",
     icon: Zap,
     steps: [
@@ -159,7 +269,7 @@ const LESSONS: Lesson[] = [
   },
   {
     id: "for-your-work",
-    title: "Lesson 5. Claude for your actual work",
+    title: "Lesson 8. Claude for your actual work",
     description:
       "This is the 'oh, this does my work' moment. Read these once you've got the basics.",
     icon: Wrench,
@@ -192,7 +302,7 @@ const LESSONS: Lesson[] = [
   },
   {
     id: "podcasts",
-    title: "Lesson 6. Three podcast episodes",
+    title: "Lesson 9. Three podcast episodes",
     description:
       "For commutes and walks. Saves you from more reading.",
     icon: Headphones,
@@ -219,7 +329,7 @@ const LESSONS: Lesson[] = [
   },
   {
     id: "go-deeper",
-    title: "Lesson 7. Go deeper with a full course",
+    title: "Lesson 10. Go deeper with a full course",
     description:
       "The capstone. One long-form course that takes you from basics to real PM work with Claude Code.",
     icon: GraduationCap,
@@ -259,11 +369,12 @@ export default async function StartHerePage() {
           You can learn this. Everyone can.
         </h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">
-          This is the beginner path for anyone new to AI at the Temple. Read the
-          pieces, watch the videos, tick things off. It takes a few focused
-          hours spread over a week or two. By the time you reach the bottom,
-          you&apos;ll be fluent enough to follow along in any future training
-          session and confident enough to start building your own things.
+          This is the beginner path for anyone new to AI at the Temple. Four
+          levels to get yourself set up, then articles, videos and podcasts to
+          lock it in. Tick things off as you go. A few focused hours spread
+          over a week or two and you&apos;ll be fluent enough to follow along
+          in any future training session, and confident enough to start
+          building your own things.
         </p>
 
         <Card className="mt-8 flex items-center gap-6">
