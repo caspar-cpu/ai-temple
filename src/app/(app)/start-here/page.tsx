@@ -58,8 +58,8 @@ const LESSONS: Lesson[] = [
       },
       {
         key: "select-opus-extended-thinking",
-        title: "Pick Opus 4.6 + Extended Thinking",
-        body: "In the model picker at the top of the chat, choose Opus 4.6 with Extended Thinking on. The smart, slow setting. What you want for real work.",
+        title: "Pick Opus 4.7 + Extended Thinking",
+        body: "In the model picker at the top of the chat, choose Opus 4.7 with Extended Thinking on. The smart, slow setting. What you want for real work.",
       },
       {
         key: "connect-connectors",
